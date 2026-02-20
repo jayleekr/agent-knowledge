@@ -21,6 +21,13 @@
   - 에스컬레이션: 처음엔 Jay 승인 → lessons에 기록 → 자율
   - Walter↔Herald 직접 통신 금지
 
+## 🔔 Herald 관리
+
+- **2026-02-20**: Herald가 frontmatter 안내 시 `author:` 사용함 (잘못됨)
+  - 상황: Creator JY에게 제출 방법 안내 시 `author: "Jinyong Shin"` 예시 제공
+  - 교훈: Herald SOUL.md에 `creator` 필드 강조가 부족
+  - 적용: SOUL.md 수정 필요 (Jay 승인 대기)
+
 ## 💡 작업 스타일
 
 - Sonnet 4.0 절대 사용 금지

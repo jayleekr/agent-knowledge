@@ -1,1 +1,12 @@
-{"daily": []}
+{
+  "daily": [
+    {
+      "date": "2026-02-20",
+      "agents": {
+        "mother": {"sessions": 1, "errors": 0, "escalations": 0, "status": "active"},
+        "walter": {"sessions": 0, "errors": 0, "escalations": 0, "status": "debugging"},
+        "herald": {"sessions": 1, "errors": 0, "escalations": 0, "status": "active", "notes": "author field issue in guidance"}
+      }
+    }
+  ]
+}

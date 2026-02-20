@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaizen ♻️ Self-Improvement Loop</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #58a6ff;
+  }
+  .subtitle {
+    text-align: center;
+    color: #8b949e;
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+  }
+  .subtitle a { color: #58a6ff; text-decoration: none; }
+
+  /* Main Loop */
+  .loop-container {
+    max-width: 1100px;
+    margin: 0 auto 64px;
+    position: relative;
+  }
+  .section-title {
+    font-size: 1.4rem;
+    color: #f0f6fc;
+    margin-bottom: 24px;
+    padding-left: 12px;
+    border-left: 4px solid #238636;
+  }
+
+  /* Sources row */
+  .sources {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .source-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 140px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .source-card:hover { transform: translateY(-4px); border-color: #58a6ff; }
+  .source-card .emoji { font-size: 2rem; margin-bottom: 8px; }
+  .source-card .name { font-weight: 600; color: #f0f6fc; font-size: 0.9rem; }
+  .source-card .detail { color: #8b949e; font-size: 0.75rem; margin-top: 4px; }
+
+  /* Arrow */
+  .arrow {
+    text-align: center;
+    padding: 12px 0;
+    color: #484f58;
+    font-size: 1.4rem;
+  }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+  .step {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: 24px 32px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+  .step.collect { border-left: 4px solid #f78166; }
+  .step.analyze { border-left: 4px solid #d2a8ff; }
+  .step.classify { border-left: 4px solid #79c0ff; }
+  .step.commit { border-left: 4px solid #238636; }
+  .step .step-num {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #0d1117;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .step.collect .step-num { color: #f78166; border: 1px solid #f78166; }
+  .step.analyze .step-num { color: #d2a8ff; border: 1px solid #d2a8ff; }
+  .step.classify .step-num { color: #79c0ff; border: 1px solid #79c0ff; }
+  .step.commit .step-num { color: #238636; border: 1px solid #238636; }
+  .step h3 { color: #f0f6fc; margin-bottom: 10px; font-size: 1.1rem; }
+  .step ul { list-style: none; padding: 0; }
+  .step ul li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    color: #c9d1d9;
+    font-size: 0.9rem;
+  }
+  .step ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #484f58;
+  }
+
+  /* Split for classify */
+  .split {
+    display: flex;
+    gap: 24px;
+    max-width: 700px;
+    width: 100%;
+    justify-content: center;
+  }
+  .split-card {
+    flex: 1;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+  }
+  .split-card.auto { border-top: 3px solid #238636; }
+  .split-card.review { border-top: 3px solid #d29922; }
+  .split-card h4 { margin-bottom: 10px; font-size: 1rem; }
+  .split-card.auto h4 { color: #3fb950; }
+  .split-card.review h4 { color: #d29922; }
+  .split-card ul { list-style: none; padding: 0; }
+  .split-card ul li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+    font-size: 0.85rem;
+    color: #8b949e;
+  }
+  .split-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+  }
+
+  /* GitHub box */
+  .github-box {
+    background: linear-gradient(135deg, #161b22, #1c2333);
+    border: 2px solid #30363d;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .github-box .gh-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .github-box h3 { color: #f0f6fc; margin-bottom: 16px; }
+  .github-box .files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .file-tag {
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #79c0ff;
+  }
+
+  /* Loop-back arrow */
+  .loop-back {
+    text-align: center;
+    padding: 16px 0;
+    color: #238636;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .loop-back .arrow-art {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Secondary diagrams */
+  .secondary {
+    max-width: 1100px;
+    margin: 0 auto 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 768px) {
+    .secondary { grid-template-columns: 1fr; }
+    .split { flex-direction: column; }
+  }
+  .secondary-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .secondary-card h3 {
+    color: #f0f6fc;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+  }
+  .flow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .flow-step .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .flow-step .line {
+    width: 2px;
+    height: 20px;
+    margin-left: 4px;
+    background: #30363d;
+  }
+  .flow-step p { font-size: 0.85rem; color: #c9d1d9; }
+  .flow-step p strong { color: #f0f6fc; }
+
+  /* Cron badge */
+  .cron-badge {
+    display: inline-block;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    color: #a5b4fc;
+    font-family: monospace;
+    margin-left: 8px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    color: #484f58;
+    font-size: 0.8rem;
+    padding: 40px 0 20px;
+  }
+  footer a { color: #58a6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<h1>♻️ Kaizen Self-Improvement Loop</h1>
+<p class="subtitle">
+  Powered by <a href="https://openclaw.ai">OpenClaw</a> Multi-Agent System
+  <span class="cron-badge">cron: 11:00 AM / 19:00 PM KST</span>
+</p>
+
+<!-- Main Loop -->
+<div class="loop-container">
+  <h2 class="section-title">Main Loop</h2>
+
+  <!-- Data Sources -->
+  <div class="sources">
+    <div class="source-card">
+      <div class="emoji">🫶</div>
+      <div class="name">Mother</div>
+      <div class="detail">Session logs<br>Escalations</div>
+    </div>
+    <div class="source-card">
+      <div class="emoji">🤖</div>
+      <div class="name">Walter</div>
+      <div class="detail">Session logs<br>Work errors</div>
+    </div>
+    <div class="source-card">
+      <div class="emoji">🔔</div>
+      <div class="name">Herald</div>
+      <div class="detail">Discord threads<br>Creator Q&A</div>
+    </div>
+    <div class="source-card">
+      <div class="emoji">👥</div>
+      <div class="name">Creators</div>
+      <div class="detail">Feedback<br>Submissions</div>
+    </div>
+    <div class="source-card">
+      <div class="emoji">⚙️</div>
+      <div class="name">System</div>
+      <div class="detail">Cron status<br>Token usage</div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <div class="steps">
+    <!-- Step 1: Collect -->
+    <div class="step collect">
+      <span class="step-num">Step 1</span>
+      <h3>📥 Collect</h3>
+      <ul>
+        <li>Read last 20 messages from #content-pipeline & #creative-workshop</li>
+        <li>Scan agent session histories for errors & failures</li>
+        <li>Parse GEO scores from recent submissions</li>
+        <li>Check cron job success/failure rates</li>
+        <li>Pull token usage and system health metrics</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▼</div>
+
+    <!-- Step 2: Analyze -->
+    <div class="step analyze">
+      <span class="step-num">Step 2</span>
+      <h3>🔬 Analyze</h3>
+      <ul>
+        <li>Detect recurring error patterns across agents</li>
+        <li>Compare trends against last 7 days of data</li>
+        <li>Cross-reference agent lessons for shared insights</li>
+        <li>Evaluate each criterion in <code>eval-criteria.yaml</code></li>
+        <li>Identify criteria needing adjustment or removal</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▼</div>
+
+    <!-- Step 3: Classify -->
+    <div class="step classify">
+      <span class="step-num">Step 3</span>
+      <h3>🏷️ Classify Risk</h3>
+      <ul>
+        <li>Low Risk → auto-apply (lessons, metrics, eval-criteria, guide wording)</li>
+        <li>High Risk → write proposal for Jay's review (skill logic, cron, config, rules)</li>
+      </ul>
+    </div>
+
+    <div class="arrow">▼</div>
+
+    <!-- Split: Auto vs Review -->
+    <div class="split">
+      <div class="split-card auto">
+        <h4>✅ Auto-Apply</h4>
+        <ul>
+          <li><code>lessons/*.md</code> updates</li>
+          <li><code>metrics/*.json</code> data points</li>
+          <li><code>eval-criteria.yaml</code> tuning</li>
+          <li><code>findings/kaizen/</code> reports</li>
+          <li>Guide wording & typo fixes</li>
+        </ul>
+      </div>
+      <div class="split-card review">
+        <h4>⏳ Pending Jay's Review</h4>
+        <ul>
+          <li><code>proposals/pending/*.md</code></li>
+          <li>Skill logic changes</li>
+          <li>Cron schedule changes</li>
+          <li>openclaw.json edits</li>
+          <li>Points / anti-gaming rules</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow">▼</div>
+
+    <!-- Step 4: Commit -->
+    <div class="step commit">
+      <span class="step-num">Step 4</span>
+      <h3>📤 Commit & Push</h3>
+      <ul>
+        <li><code>git add -A</code></li>
+        <li><code>git commit -m 'kaizen: finding — YYYY-MM-DD AM/PM report'</code></li>
+        <li><code>git push origin main</code></li>
+      </ul>
+    </div>
+
+    <div class="arrow">▼</div>
+
+    <!-- GitHub Box -->
+    <div class="github-box">
+      <div class="gh-icon">📦</div>
+      <h3>GitHub: agent-knowledge</h3>
+      <div class="files">
+        <span class="file-tag">findings/kaizen/*.md</span>
+        <span class="file-tag">metrics/geo-trends.json</span>
+        <span class="file-tag">metrics/agent-health.json</span>
+        <span class="file-tag">metrics/token-usage.json</span>
+        <span class="file-tag">proposals/pending/*.md</span>
+        <span class="file-tag">lessons/*.md</span>
+        <span class="file-tag">eval-criteria.yaml</span>
+      </div>
+    </div>
+
+    <div class="loop-back">
+      <span class="arrow-art">🔄</span>
+      <code>git pull --rebase</code> at start of next cycle → Back to Step 1
+    </div>
+  </div>
+</div>
+
+<!-- Secondary Diagrams -->
+<div class="secondary">
+  <!-- Agent Lesson Flow -->
+  <div class="secondary-card">
+    <h3>📝 Agent Lesson Flow</h3>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="dot" style="background:#f78166"></div>
+        <p><strong>Agent encounters a problem</strong><br>Error, bug, unexpected behavior</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#d2a8ff"></div>
+        <p><strong>Resolves it</strong> (or escalates to Jay)<br>First occurrence → Jay approval</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#79c0ff"></div>
+        <p><strong>Records in <code>lessons/{agent}.md</code></strong><br>Context, lesson, action</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#3fb950"></div>
+        <p><strong>Commits & pushes</strong> to agent-knowledge</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#d29922"></div>
+        <p><strong>Kaizen reads updated lessons</strong><br>Cross-references across agents</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#f47067"></div>
+        <p><strong>Detects patterns</strong> → proposes systemic improvements</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eval-Criteria Evolution -->
+  <div class="secondary-card">
+    <h3>🧬 Eval-Criteria Evolution</h3>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="dot" style="background:#79c0ff"></div>
+        <p><strong>Load <code>eval-criteria.yaml</code></strong><br>Current version with all criteria</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#d2a8ff"></div>
+        <p><strong>Evaluate each criterion</strong><br>Check against collected data</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#f78166"></div>
+        <p><strong>Metric meaningless?</strong><br>→ Disable + record reason</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#3fb950"></div>
+        <p><strong>New signal found?</strong><br>→ Add criterion + rationale</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#d29922"></div>
+        <p><strong>Threshold off?</strong><br>→ Adjust based on 7-day trend</p>
+      </div>
+      <div class="flow-step">
+        <div class="dot" style="background:#58a6ff"></div>
+        <p><strong>Commit updated YAML</strong><br>Version history tracked in Git</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="https://github.com/jayleekr/agent-knowledge">github.com/jayleekr/agent-knowledge</a>
+  &nbsp;·&nbsp; Powered by <a href="https://openclaw.ai">OpenClaw</a>
+</footer>
+
+</body>
+</html>

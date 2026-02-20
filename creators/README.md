@@ -1,14 +1,14 @@
 # 🎨 Creator Contributions
 
-> HypeProof Lab Creator들의 지식 기여 공간.
+> Knowledge contribution space for HypeProof Lab Creators.
 
-## 참여 방법
+## How to Participate
 
-1. `creators/{your-name}/` 디렉토리 생성
-2. 교훈, 팁, 워크플로우 등 자유롭게 작성
-3. PR로 제출 → 리뷰 후 머지
+1. Create a `creators/{your-name}/` directory
+2. Write lessons, tips, workflows freely
+3. Submit via PR → merged after review
 
-## 예시
+## Example
 
 ```
 creators/
@@ -21,9 +21,9 @@ creators/
     └── tutorial-structure.md
 ```
 
-## 규칙
+## Rules
 
-- 마크다운 형식
-- 개인정보 포함 금지
-- 다른 Creator 디렉토리 수정 금지
-- 유용한 것만! (일기장 아님)
+- Markdown format
+- No personal information
+- Don't modify other Creators' directories
+- Useful content only! (not a diary)

@@ -1,16 +1,16 @@
 # lessons.md — Walter 🤖
 
-> 업무에서 배운 것들. 반복 실수 방지.
-> ⚠️ 회사 기밀 코드/설정 절대 기록 금지 — 일반적 교훈만!
+> Lessons learned from work. Prevent repeated mistakes.
+> ⚠️ Never record company-secret code/config — general lessons only!
 
-## 🏢 업무
+## 🏢 Work
 
-- (축적 중)
+- (accumulating)
 
-## 🔧 기술
+## 🔧 Technical
 
-- (축적 중)
+- (accumulating)
 
-## ⚠️ 실수 기록
+## ⚠️ Mistake Log
 
-- (축적 중)
+- (accumulating)

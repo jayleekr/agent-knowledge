@@ -1,15 +1,15 @@
-# Kaizen 평가 항목 — 자가 진화 가능
-# 매 실행 시 Kaizen이 이 파일을 검토하고 항목 추가/수정/비활성화 가능
-# 변경 시 변경 사유를 kaizen report에 기록할 것
+# Kaizen Evaluation Criteria — Self-Evolving
+# Kaizen reviews and may add/modify/disable criteria each run
+# Changes must be recorded in the kaizen report
 
 version: 1
 last_updated: "2026-02-20"
-updated_by: "Mother (초기 설정)"
+updated_by: "Mother (initial setup)"
 
 criteria:
   - id: creator_satisfaction
-    name: Creator 만족도
-    description: Discord 피드백에서 긍정/부정 비율
+    name: Creator Satisfaction
+    description: Positive/negative ratio from Discord feedback
     source: discord_feedback
     channels: ["1471863670718857247", "1471863673885556940"]
     metric: positive_ratio
@@ -17,16 +17,16 @@ criteria:
     enabled: true
 
   - id: geo_score_trend
-    name: GEO 점수 트렌드
-    description: 최근 7일 제출물 평균 GEO 점수
+    name: GEO Score Trend
+    description: Average GEO score of submissions over last 7 days
     source: submissions
     metric: 7day_avg
     threshold: 70
     enabled: true
 
   - id: agent_error_rate
-    name: Agent 에러율
-    description: 세션당 에러/실패 비율
+    name: Agent Error Rate
+    description: Error/failure ratio per session
     source: session_logs
     agents: ["main", "walter", "herald"]
     metric: error_per_session
@@ -34,40 +34,40 @@ criteria:
     enabled: true
 
   - id: pipeline_throughput
-    name: 파이프라인 처리량
-    description: 주간 발행 콘텐츠 수
+    name: Pipeline Throughput
+    description: Weekly published content count
     source: submissions
     metric: weekly_published
     threshold: 3
     enabled: true
 
   - id: review_turnaround
-    name: 리뷰 응답 시간
-    description: Peer Review 배정 후 완료까지 평균 시간
+    name: Review Turnaround Time
+    description: Average hours from peer review assignment to completion
     source: submissions
     metric: avg_hours_to_review
     threshold: 48
     enabled: true
 
   - id: skill_reliability
-    name: 스킬 실행 신뢰도
-    description: 크론잡/서브에이전트 성공률
+    name: Skill Execution Reliability
+    description: Cron job / sub-agent success rate
     source: cron_logs
     metric: success_rate
     threshold: 0.95
     enabled: true
 
   - id: token_efficiency
-    name: 토큰 효율성
-    description: 태스크당 평균 비용
+    name: Token Efficiency
+    description: Average cost per task
     source: session_status
     metric: cost_per_task_usd
     threshold: 0.50
     enabled: true
 
   - id: escalation_learning
-    name: 에스컬레이션 학습률
-    description: 동일 패턴 반복 에스컬레이션 비율 (낮을수록 좋음)
+    name: Escalation Learning Rate
+    description: Ratio of repeated escalations for same pattern (lower is better)
     source: lessons_md
     agents: ["main", "walter", "herald"]
     metric: repeat_escalation_ratio
@@ -75,16 +75,16 @@ criteria:
     enabled: true
 
   - id: guide_effectiveness
-    name: 가이드 효과성
-    description: 가이드 배포 후 Creator 질문 감소율
+    name: Guide Effectiveness
+    description: Reduction in Creator questions after guide deployment
     source: discord_feedback
     metric: question_reduction_rate
     threshold: 0.3
     enabled: true
 
   - id: frontmatter_error_rate
-    name: Frontmatter 오류율
-    description: 제출물 중 frontmatter 오류 비율 (낮을수록 좋음)
+    name: Frontmatter Error Rate
+    description: Ratio of submissions with frontmatter errors (lower is better)
     source: submissions
     metric: error_ratio
     threshold: 0.2

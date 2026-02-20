@@ -1,66 +1,66 @@
-# PROTOCOL.md — Agent Knowledge 커밋 규칙
+# PROTOCOL.md — Agent Knowledge Commit Rules
 
-## 커밋 권한
+## Commit Permissions
 
-### 직접 Push (main)
+### Direct Push (main)
 - **Mother**: `lessons/mother.md`, `shared/`
 - **Walter**: `lessons/walter.md`
 - **Kaizen**: `findings/`, `metrics/`, `recipes/`, `eval-criteria.yaml`
 
-### PR 필수
-- **Kaizen → proposals/**: PR 생성 → Jay 리뷰 (높은 리스크)
-- **Herald**: `lessons/herald.md` (보안상 PR 권장)
-- **Creator**: `creators/{name}/` → PR → Jay 또는 Mother 리뷰
+### PR Required
+- **Kaizen → proposals/**: Create PR → Jay reviews (high risk)
+- **Herald**: `lessons/herald.md` (PR recommended for security)
+- **Creator**: `creators/{name}/` → PR → Jay or Mother review
 
-### 자동 적용 (Kaizen)
-낮은 리스크 변경은 Kaizen이 직접 main에 push:
-- `eval-criteria.yaml` 항목 추가/threshold 조정
-- `metrics/` 데이터 업데이트
-- `findings/` 리포트 추가
-- `recipes/` 새 버전 추가
+### Auto-Apply (Kaizen)
+Low-risk changes are pushed directly to main by Kaizen:
+- `eval-criteria.yaml` criteria additions / threshold adjustments
+- `metrics/` data updates
+- `findings/` report additions
+- `recipes/` new versions
 
-### Jay 승인 필요
-높은 리스크 변경은 PR로:
-- `proposals/pending/` → PR → 승인 후 `proposals/applied/`로 이동
-- `shared/guidelines/` 변경
-- `PROTOCOL.md` 변경
+### Requires Jay's Approval
+High-risk changes go through PR:
+- `proposals/pending/` → PR → after approval, move to `proposals/applied/`
+- `shared/guidelines/` changes
+- `PROTOCOL.md` changes
 
-## 파일 규칙
+## File Format
 
 ### lessons/{agent}.md
 ```markdown
 # lessons.md — {Agent} {Emoji}
 
-## {카테고리}
-- **{날짜}**: {교훈 내용}
-  - 상황: {무슨 일이 있었는지}
-  - 교훈: {배운 것}
-  - 적용: {앞으로 어떻게 할 것인지}
+## {Category}
+- **{date}**: {lesson content}
+  - Context: {what happened}
+  - Lesson: {what was learned}
+  - Action: {how to apply going forward}
 ```
 
 ### findings/kaizen/{date}-{period}.md
-Kaizen SKILL.md의 리포트 형식 따름.
+Follow the report format from Kaizen SKILL.md.
 
 ### proposals/pending/{id}.md
 ```markdown
-# Proposal: {제목}
+# Proposal: {title}
 - ID: PROP-{YYYYMMDD}-{NNN}
-- 제안자: Kaizen ♻️
-- 영향도: High | Med | Low
-- 대상: {어떤 스킬/설정/워크플로우}
-- 현재: {현재 상태}
-- 제안: {변경 내용}
-- 근거: {데이터/분석 기반 이유}
-- 리스크: {잠재적 부작용}
+- Proposer: Kaizen ♻️
+- Impact: High | Med | Low
+- Target: {which skill/config/workflow}
+- Current State: {current state}
+- Proposed Change: {change details}
+- Rationale: {data/analysis-based reasoning}
+- Risk: {potential side effects}
 ```
 
-## 충돌 방지
+## Conflict Prevention
 
-- 각 에이전트는 **자기 파일만** 수정
-- Kaizen은 **자기 디렉토리만** 수정
-- 공용 파일(`shared/`, `PROTOCOL.md`)은 PR로만
+- Each agent modifies **only its own files**
+- Kaizen modifies **only its own directories**
+- Shared files (`shared/`, `PROTOCOL.md`) via PR only
 
-## 메트릭 포맷
+## Metrics Format
 
 ### metrics/geo-trends.json
 ```json

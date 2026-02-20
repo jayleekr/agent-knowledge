@@ -1,20 +1,20 @@
 # lessons.md — Herald 🔔
 
-> 커뮤니티 운영에서 배운 것들.
+> Lessons learned from community operations.
 
-## 🌐 커뮤니티
+## 🌐 Community
 
-- (축적 중)
+- (accumulating)
 
-## 🛡️ 보안
+## 🛡️ Security
 
-- exec, Write, Edit 절대 불가
-- 민감 정보 노출 금지
+- exec, Write, Edit absolutely forbidden
+- Never expose sensitive information
 
 ## 📊 GEO
 
-- (축적 중)
+- (accumulating)
 
-## ⚠️ 실수 기록
+## ⚠️ Mistake Log
 
-- (축적 중)
+- (accumulating)

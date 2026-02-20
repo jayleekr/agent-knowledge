@@ -177,10 +177,112 @@
 <div id="tab-diagram" class="tab-content active">
 <div class="diagrams">
 
-  <!-- Main Loop Flowchart -->
+  <!-- Dual Flow Overview -->
   <div class="diagram-section">
-    <h2>Main Self-Improvement Loop</h2>
-    <div class="mermaid" id="main-loop">
+    <h2>Dual Improvement Flows (Real-Time + Batch)</h2>
+    <div class="mermaid" id="dual-flow">
+flowchart TB
+    subgraph FlowA["⚡ Flow A: Agent-Initiated Issues (Real-Time)"]
+        direction TB
+        A_Problem["🚨 Agent encounters<br/>problem or improvement idea"]
+        A_File["📝 gh issue create<br/>--repo agent-knowledge<br/>--label agent:name,priority:level"]
+        A_Issue["🎫 GitHub Issue<br/>(open)"]
+        A_Problem --> A_File --> A_Issue
+    end
+
+    subgraph FlowB["🔄 Flow B: Kaizen Batch (11:00 / 19:00)"]
+        direction TB
+        B_Pull["git pull --rebase"]
+        B_Triage["🎫 Triage open issues<br/>auto-fixable? → fix + close<br/>needs-jay? → comment"]
+        B_Collect["📥 Collect<br/>Discord · Sessions · GEO<br/>Cron · Tokens"]
+        B_Analyze["🔬 Analyze<br/>Patterns · Trends · Criteria"]
+        B_Pull --> B_Triage --> B_Collect --> B_Analyze
+    end
+
+    A_Issue -->|"Kaizen picks up<br/>during next run"| B_Triage
+
+    B_Analyze --> Classify{"🏷️ Risk?"}
+
+    Classify -->|"Low"| Auto["✅ Auto-Apply<br/>lessons · metrics<br/>eval-criteria · guides"]
+    Classify -->|"High"| Pending["⏳ Proposal / Issue<br/>needs-jay label"]
+
+    Auto --> Commit["📤 git commit &amp; push<br/>+ close resolved issues"]
+    Pending -->|"Jay reviews"| Jay["👤 Jay"]
+    Jay -->|"Approved"| Commit
+
+    Commit --> GH[("📦 GitHub<br/>agent-knowledge")]
+    GH -->|"Next cycle"| B_Pull
+
+    B_Analyze -->|"Novel finding?"| NewIssue["🎫 File new Issue<br/>agent:kaizen"]
+    NewIssue --> GH
+
+    style FlowA fill:#1c2333,stroke:#58a6ff,color:#f0f6fc
+    style FlowB fill:#1c2333,stroke:#238636,color:#f0f6fc
+    style A_Problem fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
+    style A_File fill:#161b22,stroke:#79c0ff,color:#f0f6fc
+    style A_Issue fill:#161b22,stroke:#d29922,color:#f0f6fc
+    style B_Pull fill:#0d2d14,stroke:#238636,color:#f0f6fc
+    style B_Triage fill:#2d200a,stroke:#d29922,color:#f0f6fc
+    style B_Collect fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
+    style B_Analyze fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
+    style Classify fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
+    style Auto fill:#0d2d14,stroke:#238636,color:#f0f6fc
+    style Pending fill:#2d200a,stroke:#d29922,color:#f0f6fc
+    style Commit fill:#0d2d14,stroke:#238636,color:#f0f6fc
+    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
+    style Jay fill:#161b22,stroke:#d2a8ff,color:#d2a8ff
+    style NewIssue fill:#161b22,stroke:#f78166,color:#f0f6fc
+    </div>
+  </div>
+
+  <!-- Agent Issue Filing Flow -->
+  <div class="diagram-section">
+    <h2>Agent Issue Filing (Flow A Detail)</h2>
+    <div class="mermaid" id="issue-flow">
+flowchart LR
+    subgraph Agents["Agents"]
+        M["🫶 Mother<br/>System issues"]
+        W["🤖 Walter<br/>Work issues"]
+        H["🔔 Herald<br/>Creator issues"]
+    end
+
+    File["📝 gh issue create<br/>--label agent:X"]
+    GH[("📦 GitHub Issues")]
+
+    M --> File
+    W --> File
+    H --> File
+    File --> GH
+
+    GH --> Triage{"Kaizen Triage<br/>(next scheduled run)"}
+
+    Triage -->|"auto-fixable"| Fix["♻️ Kaizen fixes<br/>+ closes issue"]
+    Triage -->|"needs-jay"| Jay["👤 Jay reviews<br/>on GitHub"]
+    Triage -->|"needs more data"| Comment["💬 Kaizen adds<br/>analysis comment"]
+
+    Jay -->|"Approved"| Fix2["♻️ Apply fix<br/>+ close issue"]
+    Jay -->|"Rejected"| Close["❌ Close with reason"]
+    Comment -->|"next run"| Triage
+
+    style Agents fill:#1c2333,stroke:#30363d,color:#c9d1d9
+    style M fill:#2d200a,stroke:#d29922,color:#f0f6fc
+    style W fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
+    style H fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
+    style File fill:#161b22,stroke:#79c0ff,color:#f0f6fc
+    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
+    style Triage fill:#0d2d14,stroke:#238636,color:#f0f6fc
+    style Fix fill:#0d2d14,stroke:#3fb950,color:#f0f6fc
+    style Fix2 fill:#0d2d14,stroke:#3fb950,color:#f0f6fc
+    style Jay fill:#161b22,stroke:#d2a8ff,color:#d2a8ff
+    style Comment fill:#161b22,stroke:#d29922,color:#f0f6fc
+    style Close fill:#161b22,stroke:#f47067,color:#f0f6fc
+    </div>
+  </div>
+
+  <!-- Kaizen Batch Loop -->
+  <div class="diagram-section">
+    <h2>Kaizen Batch Loop (Flow B Detail)</h2>
+    <div class="mermaid" id="batch-loop">
 flowchart TB
     subgraph Sources["📡 Data Sources"]
         M["🫶 Mother<br/>Session Logs"]
@@ -188,102 +290,61 @@ flowchart TB
         H["🔔 Herald<br/>Discord Threads"]
         C["👥 Creators<br/>Feedback &amp; Submissions"]
         S["⚙️ System<br/>Cron &amp; Tokens"]
+        I["🎫 Open Issues<br/>GitHub"]
     end
 
     subgraph Collect["📥 Step 1: Collect"]
-        C1["Read #content-pipeline<br/>last 20 messages"]
-        C2["Read #creative-workshop<br/>last 20 messages"]
-        C3["Scan agent session histories"]
-        C4["Parse GEO scores"]
-        C5["Check cron success rates"]
+        C1["Read Discord channels"]
+        C2["Scan agent sessions"]
+        C3["Parse GEO scores"]
+        C4["Check cron status"]
+        C5["List open GitHub issues"]
     end
 
     subgraph Analyze["🔬 Step 2: Analyze"]
-        A1["Detect recurring error patterns"]
-        A2["Compare 7-day trend data"]
-        A3["Cross-reference agent lessons"]
-        A4["Evaluate eval-criteria.yaml"]
+        A1["Detect error patterns"]
+        A2["Compare 7-day trends"]
+        A3["Cross-reference lessons"]
+        A4["Evaluate criteria"]
+        A5["Match issues to findings"]
     end
 
-    subgraph Classify["🏷️ Step 3: Classify Risk"]
-        CL{"Risk Level?"}
+    CL{"🏷️ Risk?"}
+
+    subgraph Auto["✅ Auto-Apply"]
+        AA1["Update lessons"]
+        AA2["Update metrics"]
+        AA3["Tune criteria"]
+        AA4["Close auto-fixable issues"]
     end
 
-    subgraph AutoApply["✅ Auto-Apply<br/>(Low Risk)"]
-        AA1["Update lessons/*.md"]
-        AA2["Update metrics/*.json"]
-        AA3["Tune eval-criteria.yaml"]
-        AA4["Add findings/ report"]
-        AA5["Fix guide wording"]
+    subgraph Pending["⏳ Needs Review"]
+        P1["proposals/pending/"]
+        P2["Label: needs-jay"]
+        P3["File new issues"]
     end
 
-    subgraph Pending["⏳ Pending Review<br/>(High Risk)"]
-        P1["Write proposals/pending/*.md"]
-        P2["Skill logic changes"]
-        P3["Cron schedule changes"]
-        P4["Config / rule changes"]
+    subgraph Commit["📤 Commit"]
+        G1["git add · commit · push"]
+        G2["Close resolved issues"]
     end
 
-    subgraph Commit["📤 Step 4: Commit &amp; Push"]
-        G1["git add -A"]
-        G2["git commit -m 'kaizen: ...'"]
-        G3["git push origin main"]
-    end
+    GH[("📦 GitHub<br/>agent-knowledge")]
+    Pull["🔄 git pull<br/>(next cycle)"]
 
-    GH[("📦 GitHub<br/>agent-knowledge<br/>repository")]
-
-    Pull["🔄 git pull --rebase<br/>(next cycle start)"]
-
-    Sources --> Collect
-    Collect --> Analyze
-    Analyze --> Classify
-    CL -->|"Low Risk"| AutoApply
-    CL -->|"High Risk"| Pending
-    Pending -->|"Jay reviews PR"| Jay["👤 Jay<br/>Approve / Reject"]
-    Jay -->|"Approved"| Applied["proposals/applied/"]
-    AutoApply --> Commit
-    Applied --> Commit
-    Commit --> GH
-    GH --> Pull
-    Pull -->|"Next Kaizen run"| Sources
+    Sources --> Collect --> Analyze --> CL
+    CL -->|"Low"| Auto --> Commit
+    CL -->|"High"| Pending --> Commit
+    Commit --> GH --> Pull -->|"Back to start"| Sources
 
     style Sources fill:#1c2333,stroke:#30363d,color:#c9d1d9
     style Collect fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
     style Analyze fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Classify fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style AutoApply fill:#0d2d14,stroke:#238636,color:#f0f6fc
+    style Auto fill:#0d2d14,stroke:#238636,color:#f0f6fc
     style Pending fill:#2d200a,stroke:#d29922,color:#f0f6fc
     style Commit fill:#0d2d14,stroke:#238636,color:#f0f6fc
     style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
     style Pull fill:#161b22,stroke:#238636,color:#3fb950
-    style Jay fill:#161b22,stroke:#d2a8ff,color:#d2a8ff
-    style Applied fill:#161b22,stroke:#3fb950,color:#3fb950
-    </div>
-  </div>
-
-  <!-- Agent Lesson Flow -->
-  <div class="diagram-section">
-    <h2>Agent Lesson Flow</h2>
-    <div class="mermaid" id="lesson-flow">
-flowchart LR
-    Problem["🚨 Agent<br/>encounters problem"]
-    Resolve["🔧 Resolve<br/>(or escalate to Jay)"]
-    Record["📝 Record in<br/>lessons/agent.md"]
-    Push["📤 git commit<br/>&amp; push"]
-    Kaizen["♻️ Kaizen reads<br/>updated lessons"]
-    Cross["🔀 Cross-reference<br/>all agents' lessons"]
-    Pattern["💡 Detect patterns<br/>→ Propose systemic fix"]
-
-    Problem --> Resolve --> Record --> Push --> Kaizen --> Cross --> Pattern
-    Pattern -.->|"feeds back into<br/>next Kaizen cycle"| Kaizen
-
-    style Problem fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style Resolve fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Record fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style Push fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style Kaizen fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style Cross fill:#1c2333,stroke:#58a6ff,color:#f0f6fc
-    style Pattern fill:#2d0a0a,stroke:#f47067,color:#f0f6fc
     </div>
   </div>
 

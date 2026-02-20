@@ -1,0 +1,35 @@
+[
+  {
+    "agent": "mother",
+    "session_id": "s001",
+    "errors": [
+      {"message": "API timeout", "code": 408},
+      {"message": "Missing required field", "code": 400}
+    ]
+  },
+  {
+    "agent": "walter",
+    "session_id": "s002",
+    "errors": [
+      {"message": "API timeout", "code": 408},
+      {"message": "API timeout", "code": 408},
+      {"message": "JSON parse error", "code": 500},
+      {"message": "Missing required field", "code": 400},
+      {"message": "Missing required field", "code": 400}
+    ]
+  },
+  {
+    "agent": "herald",
+    "session_id": "s003",
+    "errors": [
+      {"message": "API timeout", "code": 408},
+      {"message": "JSON parse error", "code": 500},
+      {"message": "JSON parse error", "code": 500}
+    ]
+  },
+  {
+    "agent": "mother",
+    "session_id": "s004",
+    "errors": []
+  }
+]

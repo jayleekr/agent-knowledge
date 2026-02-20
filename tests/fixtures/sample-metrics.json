@@ -1,0 +1,11 @@
+{
+  "daily": [
+    {"date": "2026-02-14", "avg_score": 75, "submissions": 8, "published": 6},
+    {"date": "2026-02-15", "avg_score": 78, "submissions": 10, "published": 8},
+    {"date": "2026-02-16", "avg_score": 72, "submissions": 7, "published": 5},
+    {"date": "2026-02-17", "avg_score": 80, "submissions": 12, "published": 10},
+    {"date": "2026-02-18", "avg_score": 82, "submissions": 9, "published": 7},
+    {"date": "2026-02-19", "avg_score": 79, "submissions": 11, "published": 9},
+    {"date": "2026-02-20", "avg_score": 88, "submissions": 14, "published": 12}
+  ]
+}

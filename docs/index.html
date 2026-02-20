@@ -8,114 +8,136 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #0d1117;
-    color: #c9d1d9;
-    min-height: 100vh;
-    padding: 40px 20px;
-    line-height: 1.6;
+    background: #0d1117; color: #c9d1d9;
+    padding: 40px 20px; line-height: 1.5;
   }
-
-  .container { max-width: 900px; margin: 0 auto; }
-
-  h1 { text-align: center; font-size: 2.2rem; color: #f0f6fc; margin-bottom: 8px; }
-  .tagline { text-align: center; color: #8b949e; font-size: 1.1rem; margin-bottom: 48px; }
+  h1 { text-align: center; font-size: 2rem; color: #f0f6fc; margin-bottom: 6px; }
+  .tagline { text-align: center; color: #8b949e; margin-bottom: 48px; }
   .tagline a { color: #58a6ff; text-decoration: none; }
 
-  /* Section */
-  .section { margin-bottom: 64px; }
-  .section h2 {
-    font-size: 1.5rem; color: #f0f6fc; margin-bottom: 8px;
+  /* ===== Sequence Diagram ===== */
+  .seq { max-width: 1000px; margin: 0 auto 64px; overflow-x: auto; }
+  .seq h2 {
+    font-size: 1.4rem; color: #f0f6fc; margin-bottom: 24px;
+    padding-left: 12px; border-left: 4px solid #238636;
   }
-  .section .desc {
-    color: #8b949e; margin-bottom: 28px; font-size: 0.95rem;
+  .seq-wrap {
+    position: relative; min-width: 820px;
   }
 
-  /* Big Flow — the simple overview */
-  .big-flow {
-    display: flex; flex-direction: column; align-items: center; gap: 0;
+  /* Actor columns */
+  .actors {
+    display: flex; justify-content: space-between; position: relative; z-index: 2;
   }
-  .big-step {
-    width: 100%; max-width: 520px;
-    background: #161b22; border-radius: 16px;
-    padding: 24px 28px; text-align: center;
+  .actor {
+    width: 120px; text-align: center; flex-shrink: 0;
+  }
+  .actor .box {
+    background: #161b22; border: 2px solid #30363d; border-radius: 12px;
+    padding: 12px 8px; margin-bottom: 0;
+  }
+  .actor .emoji { font-size: 1.8rem; }
+  .actor .name { font-weight: 700; color: #f0f6fc; font-size: 0.85rem; }
+  .actor .role { color: #8b949e; font-size: 0.7rem; }
+
+  /* Lifelines */
+  .lifelines {
+    display: flex; justify-content: space-between; position: relative;
+    height: 0;
+  }
+  .lifeline {
+    width: 120px; text-align: center; flex-shrink: 0; position: relative;
+  }
+  .lifeline::after {
+    content: ''; position: absolute; left: 50%; top: 0;
+    width: 2px; height: var(--ll-height, 1200px);
+    background: repeating-linear-gradient(to bottom, #30363d 0, #30363d 6px, transparent 6px, transparent 12px);
+    transform: translateX(-1px);
+  }
+
+  /* Messages */
+  .messages {
+    position: relative; z-index: 1;
+  }
+  .msg {
+    position: relative; height: 52px; display: flex; align-items: center;
+  }
+  .msg-line {
+    position: absolute; height: 2px; top: 50%;
+  }
+  .msg-line.solid { background: #58a6ff; }
+  .msg-line.dashed {
+    background: repeating-linear-gradient(to right, #3fb950 0, #3fb950 8px, transparent 8px, transparent 14px);
+  }
+  .msg-line.red { background: #f78166; }
+  .msg-line.yellow {
+    background: #d29922;
+  }
+  .msg-line.purple { background: #d2a8ff; }
+
+  /* Arrowheads */
+  .msg-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 0; height: 0; border-style: solid;
+  }
+  .msg-arrow.right {
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent var(--arrow-color, #58a6ff);
+  }
+  .msg-arrow.left {
+    border-width: 6px 10px 6px 0;
+    border-color: transparent var(--arrow-color, #58a6ff) transparent transparent;
+  }
+
+  /* Labels */
+  .msg-label {
+    position: absolute; top: -2px;
+    background: #0d1117; padding: 2px 10px; border-radius: 8px;
+    font-size: 0.78rem; color: #f0f6fc; white-space: nowrap;
     border: 1px solid #30363d;
   }
-  .big-step .icon { font-size: 2.4rem; margin-bottom: 8px; }
-  .big-step h3 { font-size: 1.15rem; color: #f0f6fc; margin-bottom: 6px; }
-  .big-step p { color: #8b949e; font-size: 0.9rem; }
-  .big-arrow {
-    font-size: 1.6rem; color: #30363d; padding: 8px 0;
+  .msg-label .num {
+    display: inline-block; background: #1f6feb; color: #fff;
+    border-radius: 10px; width: 18px; height: 18px; line-height: 18px;
+    text-align: center; font-size: 0.65rem; font-weight: 700;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .msg-label .sub { color: #8b949e; font-size: 0.7rem; }
+
+  /* Self-message (activation) */
+  .self-block {
+    position: absolute; border: 2px solid #238636; border-radius: 8px;
+    background: rgba(35, 134, 54, 0.1); padding: 8px 12px;
+    font-size: 0.75rem; color: #3fb950;
   }
 
-  /* Two-column layout */
-  .two-col {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    max-width: 520px; width: 100%;
+  /* Divider */
+  .seq-divider {
+    position: relative; height: 40px; display: flex; align-items: center;
+    justify-content: center; z-index: 3;
   }
-  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
-  .col-card {
-    background: #161b22; border-radius: 16px; padding: 24px; text-align: center;
-    border: 1px solid #30363d;
+  .seq-divider span {
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 4px 16px; font-size: 0.75rem; color: #d29922; font-weight: 600;
   }
-  .col-card .icon { font-size: 2rem; margin-bottom: 8px; }
-  .col-card h4 { font-size: 1rem; color: #f0f6fc; margin-bottom: 6px; }
-  .col-card p { color: #8b949e; font-size: 0.85rem; }
-  .col-card.green { border-color: #238636; }
-  .col-card.yellow { border-color: #d29922; }
-
-  /* Agent cards */
-  .agents {
-    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-  }
-  .agent-card {
-    background: #161b22; border: 1px solid #30363d; border-radius: 16px;
-    padding: 20px 24px; text-align: center; min-width: 160px;
-    transition: transform 0.2s;
-  }
-  .agent-card:hover { transform: translateY(-3px); }
-  .agent-card .emoji { font-size: 2.5rem; margin-bottom: 8px; }
-  .agent-card .name { font-weight: 700; color: #f0f6fc; font-size: 1rem; margin-bottom: 4px; }
-  .agent-card .role { color: #8b949e; font-size: 0.8rem; }
-
-  /* Timeline */
-  .timeline { position: relative; padding-left: 40px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
-    width: 2px; background: #30363d;
-  }
-  .tl-item {
-    position: relative; margin-bottom: 28px;
-  }
-  .tl-item::before {
-    content: ''; position: absolute; left: -29px; top: 6px;
-    width: 12px; height: 12px; border-radius: 50%; border: 2px solid #30363d;
-    background: #0d1117;
-  }
-  .tl-item.red::before { border-color: #f78166; background: #f78166; }
-  .tl-item.purple::before { border-color: #d2a8ff; background: #d2a8ff; }
-  .tl-item.blue::before { border-color: #58a6ff; background: #58a6ff; }
-  .tl-item.green::before { border-color: #3fb950; background: #3fb950; }
-  .tl-item.yellow::before { border-color: #d29922; background: #d29922; }
-  .tl-item h4 { color: #f0f6fc; font-size: 0.95rem; margin-bottom: 4px; }
-  .tl-item p { color: #8b949e; font-size: 0.85rem; }
-
-  /* Loop badge */
-  .loop-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #0d2d14; border: 1px solid #238636; border-radius: 24px;
-    padding: 8px 20px; color: #3fb950; font-weight: 600; font-size: 0.9rem;
+  .seq-divider::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%;
+    height: 1px; background: #30363d;
   }
 
-  /* Example box */
-  .example {
-    background: #161b22; border: 1px solid #30363d; border-radius: 12px;
-    padding: 20px 24px; margin-top: 20px;
+  /* Bottom actors */
+  .actors-bottom .box { margin-top: 0; }
+
+  /* Legend */
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    justify-content: center; margin-top: 20px;
   }
-  .example h4 { color: #79c0ff; font-size: 0.9rem; margin-bottom: 8px; }
-  .example p { color: #c9d1d9; font-size: 0.85rem; }
-  .example code {
-    background: #21262d; padding: 2px 6px; border-radius: 4px;
-    font-family: 'SF Mono', monospace; font-size: 0.8rem; color: #79c0ff;
+  .legend-item {
+    display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #8b949e;
+  }
+  .legend-line {
+    width: 30px; height: 2px; border-radius: 1px;
   }
 
   footer {
@@ -125,215 +147,295 @@
 </style>
 </head>
 <body>
-<div class="container">
 
-<h1>♻️ Kaizen</h1>
-<p class="tagline">How AI Agents Learn and Improve Themselves</p>
+<h1>♻️ Kaizen — Self-Improvement Loop</h1>
+<p class="tagline">How AI agents learn from mistakes and improve themselves, powered by <a href="https://openclaw.ai">OpenClaw</a></p>
 
-<!-- ========== THE TEAM ========== -->
-<div class="section">
-  <h2>Meet the Team</h2>
-  <p class="desc">Four AI agents working together, sharing what they learn.</p>
-  <div class="agents">
-    <div class="agent-card">
-      <div class="emoji">🫶</div>
-      <div class="name">Mother</div>
-      <div class="role">Team Lead<br>Coordinates everyone</div>
-    </div>
-    <div class="agent-card">
-      <div class="emoji">🤖</div>
-      <div class="name">Walter</div>
-      <div class="role">Work Specialist<br>Handles company tasks</div>
-    </div>
-    <div class="agent-card">
-      <div class="emoji">🔔</div>
-      <div class="name">Herald</div>
-      <div class="role">Community Manager<br>Helps content creators</div>
-    </div>
-    <div class="agent-card">
-      <div class="emoji">♻️</div>
-      <div class="name">Kaizen</div>
-      <div class="role">Improvement Bot<br>Finds &amp; fixes problems</div>
-    </div>
+<!-- ============ FLOW A: REAL-TIME ============ -->
+<div class="seq">
+<h2>⚡ Flow A — Agent Reports a Problem (Real-Time)</h2>
+<div class="seq-wrap" style="min-height: 460px;">
+
+  <!-- Actors -->
+  <div class="actors">
+    <div class="actor"><div class="box" style="border-color:#f78166"><div class="emoji">🔔</div><div class="name">Herald</div><div class="role">Community</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#58a6ff"><div class="emoji">📦</div><div class="name">GitHub</div><div class="role">Issues & Code</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#238636"><div class="emoji">♻️</div><div class="name">Kaizen</div><div class="role">Improvement Bot</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#d29922"><div class="emoji">🫶</div><div class="name">Mother</div><div class="role">Team Lead</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#d2a8ff"><div class="emoji">👤</div><div class="name">Jay</div><div class="role">Owner</div></div></div>
   </div>
-</div>
 
-<!-- ========== HOW IT WORKS ========== -->
-<div class="section">
-  <h2>How It Works</h2>
-  <p class="desc">Two simple ways problems get fixed — agents report them, or Kaizen finds them automatically.</p>
+  <!-- Lifelines -->
+  <div class="lifelines" style="--ll-height: 370px;">
+    <div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div>
+  </div>
 
-  <div class="big-flow">
+  <!-- Messages -->
+  <div class="messages">
 
-    <!-- Way 1 -->
-    <div class="big-step" style="border-color: #58a6ff;">
-      <div class="icon">🚨</div>
-      <h3>An Agent Spots a Problem</h3>
-      <p>Any agent can report an issue the moment it happens.<br>
-      Think of it like raising your hand in a meeting.</p>
-    </div>
-
-    <div class="big-arrow">↓</div>
-
-    <div class="big-step" style="border-color: #79c0ff;">
-      <div class="icon">🎫</div>
-      <h3>File a GitHub Issue</h3>
-      <p>The agent creates a ticket describing what went wrong,<br>
-      how important it is, and a suggested fix.</p>
-    </div>
-
-    <div class="big-arrow">↓</div>
-
-    <!-- Way 2 merges here -->
-    <div class="big-step" style="border-color: #d2a8ff;">
-      <div class="icon">♻️</div>
-      <h3>Kaizen Reviews Everything</h3>
-      <p>Twice a day (11am &amp; 7pm), Kaizen wakes up and checks:<br>
-      agent-filed issues, Discord feedback, error logs, and quality scores.</p>
-    </div>
-
-    <div class="big-arrow">↓</div>
-
-    <div class="big-step" style="border-color: #d29922;">
-      <div class="icon">🤔</div>
-      <h3>Is It Safe to Fix Automatically?</h3>
-      <p>Small fix (typo, guide update, new lesson)?<br>
-      → Kaizen fixes it right away.<br>
-      Big change (new feature, rule change)?<br>
-      → Kaizen asks the human owner first.</p>
-    </div>
-
-    <div class="big-arrow">↓</div>
-
-    <div class="two-col">
-      <div class="col-card green">
-        <div class="icon">✅</div>
-        <h4>Auto-Fixed</h4>
-        <p>Small, safe improvements are applied immediately and saved to GitHub.</p>
-      </div>
-      <div class="col-card yellow">
-        <div class="icon">👤</div>
-        <h4>Human Review</h4>
-        <p>Risky changes wait for the owner (Jay) to approve or reject.</p>
+    <!-- 1: Herald → GitHub -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line solid" style="left:60px; width:calc(50% - 120px + 60px); --c:#f78166; background:#f78166;"></div>
+      <div class="msg-arrow right" style="left:calc(50% - 60px); --arrow-color:#f78166;"></div>
+      <div class="msg-label" style="left:90px; top:2px;">
+        <span class="num">1</span> Files Issue: "Creator got wrong field name"
       </div>
     </div>
 
-    <div class="big-arrow">↓</div>
-
-    <div class="big-step" style="border-color: #238636;">
-      <div class="icon">📦</div>
-      <h3>Saved to GitHub</h3>
-      <p>All changes — fixes, lessons, reports, metrics —<br>
-      are committed to a shared Git repository.<br>
-      This is the team's shared memory.</p>
+    <!-- 2: GitHub → Kaizen (next scheduled run) -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line dashed" style="left:calc(50% - 60px); width:calc(25%);"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#3fb950;"></div>
+      <div class="msg-label" style="left:calc(50% - 40px); top:2px;">
+        <span class="num">2</span> Kaizen picks up issue <span class="sub">(next 11am/7pm run)</span>
+      </div>
     </div>
 
-    <div class="big-arrow">↓</div>
+    <!-- 3: Kaizen self — analyze -->
+    <div class="msg" style="height:56px">
+      <div class="self-block" style="left:calc(75% - 80px); top:8px; width:160px;">
+        <span class="num" style="background:#238636;">3</span> Analyze: auto-fixable?
+      </div>
+    </div>
 
-    <div style="text-align: center;">
-      <span class="loop-badge">🔄 Next cycle starts from the top</span>
+    <!-- Divider: simple fix -->
+    <div class="seq-divider"><span>✅ If auto-fixable</span></div>
+
+    <!-- 4: Kaizen → GitHub (fix + close) -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line solid" style="left:calc(50% - 60px); width:calc(25%); background:#238636;"></div>
+      <div class="msg-arrow left" style="left:calc(50% - 58px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(50% - 20px); top:2px;">
+        <span class="num" style="background:#238636;">4</span> Commits fix + closes issue
+      </div>
+    </div>
+
+    <!-- Divider: needs human -->
+    <div class="seq-divider"><span>⏳ If needs human approval</span></div>
+
+    <!-- 4b: Kaizen → Jay -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line purple" style="left:calc(75% - 60px); width:calc(25%);"></div>
+      <div class="msg-arrow right" style="left:calc(100% - 120px); --arrow-color:#d2a8ff;"></div>
+      <div class="msg-label" style="left:calc(75% - 20px); top:2px;">
+        <span class="num" style="background:#d2a8ff; color:#000;">4</span> Asks Jay: "Can I change the guide template?"
+      </div>
+    </div>
+
+    <!-- 5: Jay → GitHub (approve) -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line purple" style="left:calc(50% - 60px); width:calc(50%); background:#d2a8ff;"></div>
+      <div class="msg-arrow left" style="left:calc(50% - 58px); --arrow-color:#d2a8ff;"></div>
+      <div class="msg-label" style="left:calc(62%); top:2px;">
+        <span class="num" style="background:#d2a8ff; color:#000;">5</span> Jay approves → merged
+      </div>
     </div>
 
   </div>
 </div>
 
-<!-- ========== WHAT AGENTS LEARN ========== -->
-<div class="section">
-  <h2>What Happens When an Agent Learns Something?</h2>
-  <p class="desc">Every mistake or discovery becomes a lesson for the whole team.</p>
+<div class="legend">
+  <div class="legend-item"><div class="legend-line" style="background:#f78166;"></div> Agent action</div>
+  <div class="legend-item"><div class="legend-line" style="background:repeating-linear-gradient(to right, #3fb950 0, #3fb950 6px, transparent 6px, transparent 10px);"></div> Scheduled pickup</div>
+  <div class="legend-item"><div class="legend-line" style="background:#238636;"></div> Auto-fix</div>
+  <div class="legend-item"><div class="legend-line" style="background:#d2a8ff;"></div> Human review</div>
+</div>
+</div>
 
-  <div class="timeline">
-    <div class="tl-item red">
-      <h4>1. Something goes wrong</h4>
-      <p>Herald gives a creator incorrect formatting advice.</p>
-    </div>
-    <div class="tl-item purple">
-      <h4>2. The agent fixes it</h4>
-      <p>Herald corrects the advice and notes what happened.</p>
-    </div>
-    <div class="tl-item blue">
-      <h4>3. Writes it down</h4>
-      <p>The lesson is recorded in the agent's personal lesson file.</p>
-    </div>
-    <div class="tl-item green">
-      <h4>4. Shared with the team</h4>
-      <p>Pushed to GitHub so all agents can see it.</p>
-    </div>
-    <div class="tl-item yellow">
-      <h4>5. Kaizen spots a pattern</h4>
-      <p>"Three agents made similar mistakes this week — let's fix the root cause."</p>
-    </div>
+<!-- ============ FLOW B: BATCH ============ -->
+<div class="seq">
+<h2>🔄 Flow B — Kaizen Batch Improvement (Twice Daily)</h2>
+<div class="seq-wrap" style="min-height: 640px;">
+
+  <!-- Actors -->
+  <div class="actors">
+    <div class="actor"><div class="box" style="border-color:#79c0ff"><div class="emoji">💬</div><div class="name">Discord</div><div class="role">Creator Feedback</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#d29922"><div class="emoji">🫶🤖🔔</div><div class="name">Agents</div><div class="role">Session Logs</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#238636"><div class="emoji">♻️</div><div class="name">Kaizen</div><div class="role">Improvement Bot</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#58a6ff"><div class="emoji">📦</div><div class="name">GitHub</div><div class="role">Knowledge Base</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#d2a8ff"><div class="emoji">👤</div><div class="name">Jay</div><div class="role">Owner</div></div></div>
   </div>
 
-  <div class="example">
-    <h4>💡 Real Example</h4>
-    <p>Herald told a creator to use <code>author: "Name"</code> in their article, but the correct field is <code>creator: "Name"</code>. Herald recorded this mistake. Kaizen later noticed the guide template itself was wrong, and proposed updating it — preventing the same mistake for all future creators.</p>
+  <!-- Lifelines -->
+  <div class="lifelines" style="--ll-height: 560px;">
+    <div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div>
+  </div>
+
+  <div class="messages">
+
+    <!-- 1: Kaizen → GitHub: pull -->
+    <div class="msg" style="height:60px">
+      <div class="msg-line solid" style="left:calc(50%); width:calc(25% - 0px); background:#238636;"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(52%); top:2px;">
+        <span class="num" style="background:#238636;">1</span> git pull <span class="sub">(get latest knowledge)</span>
+      </div>
+    </div>
+
+    <!-- 2: GitHub → Kaizen: open issues -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line dashed" style="left:calc(50%); width:calc(25%);"></div>
+      <div class="msg-arrow left" style="left:calc(50% + 2px); --arrow-color:#3fb950;"></div>
+      <div class="msg-label" style="left:calc(52%); top:0px;">
+        <span class="num">2</span> Returns open issues + lessons
+      </div>
+    </div>
+
+    <!-- 3: Discord → Kaizen: read messages -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:60px; width:calc(50% - 60px); background:#79c0ff;"></div>
+      <div class="msg-arrow left" style="left:calc(50% + 2px); --arrow-color:#79c0ff;"></div>
+      <div class="msg-label" style="left:80px; top:0;">
+        <span class="num" style="background:#79c0ff; color:#000;">3</span> Read creator feedback + GEO scores
+      </div>
+    </div>
+
+    <!-- 4: Agents → Kaizen: session logs -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:calc(25% + 60px); width:calc(25% - 60px); background:#d29922;"></div>
+      <div class="msg-arrow left" style="left:calc(50% + 2px); --arrow-color:#d29922;"></div>
+      <div class="msg-label" style="left:calc(27%); top:0;">
+        <span class="num" style="background:#d29922; color:#000;">4</span> Scan session logs for errors
+      </div>
+    </div>
+
+    <!-- 5: Kaizen self — analyze -->
+    <div class="msg" style="height:56px">
+      <div class="self-block" style="left:calc(50% - 20px); top:6px; width:180px;">
+        <span class="num" style="background:#238636;">5</span> Analyze patterns & trends<br>
+        <span style="font-size:0.7rem; color:#8b949e;">Compare vs last 7 days</span>
+      </div>
+    </div>
+
+    <!-- 6: Kaizen self — classify -->
+    <div class="msg" style="height:52px">
+      <div class="self-block" style="left:calc(50% - 20px); top:4px; width:180px;">
+        <span class="num" style="background:#238636;">6</span> Classify: low or high risk?
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="seq-divider"><span>✅ Low-risk fixes</span></div>
+
+    <!-- 7: Kaizen → GitHub: commit fixes -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:calc(50%); width:calc(25%); background:#238636;"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(52%); top:0;">
+        <span class="num" style="background:#238636;">7</span> Auto-fix: update lessons, metrics, guides
+      </div>
+    </div>
+
+    <!-- 8: Kaizen → GitHub: close issues -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:calc(50%); width:calc(25%); background:#238636;"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(52%); top:0;">
+        <span class="num" style="background:#238636;">8</span> Close resolved issues with comment
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="seq-divider"><span>⏳ High-risk changes</span></div>
+
+    <!-- 9: Kaizen → Jay -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line purple" style="left:calc(50%); width:calc(50% - 60px);"></div>
+      <div class="msg-arrow right" style="left:calc(100% - 118px); --arrow-color:#d2a8ff;"></div>
+      <div class="msg-label" style="left:calc(60%); top:0;">
+        <span class="num" style="background:#d2a8ff; color:#000;">9</span> Proposal + issue labeled <code style="font-size:.7rem">needs-jay</code>
+      </div>
+    </div>
+
+    <!-- 10: Kaizen → GitHub: push report -->
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:calc(50%); width:calc(25%); background:#238636;"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(52%); top:0;">
+        <span class="num" style="background:#238636;">10</span> Push report + metrics → git commit
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- ========== SELF-EVOLVING CRITERIA ========== -->
-<div class="section">
-  <h2>Self-Evolving Quality Standards</h2>
-  <p class="desc">Kaizen doesn't just follow rules — it improves the rules themselves.</p>
-
-  <div class="timeline">
-    <div class="tl-item blue">
-      <h4>Check each quality metric</h4>
-      <p>Is "Creator Satisfaction" still meaningful? Is the threshold right?</p>
-    </div>
-    <div class="tl-item red">
-      <h4>Remove what doesn't work</h4>
-      <p>If a metric never produces useful insights, disable it.</p>
-    </div>
-    <div class="tl-item green">
-      <h4>Add what's missing</h4>
-      <p>Noticed a new problem pattern? Create a new metric to track it.</p>
-    </div>
-    <div class="tl-item yellow">
-      <h4>Adjust thresholds</h4>
-      <p>As quality improves, raise the bar. If it's too strict, lower it.</p>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4>💡 Example</h4>
-    <p>Kaizen started with 10 quality criteria. After a week, it noticed "Pipeline Throughput" was always at zero (no submissions yet), so it temporarily disabled it. Meanwhile, it added a new criterion: "Onboarding Completion Rate" because three new creators dropped off during signup.</p>
-  </div>
+<div class="legend">
+  <div class="legend-item"><div class="legend-line" style="background:#79c0ff;"></div> Data collection</div>
+  <div class="legend-item"><div class="legend-line" style="background:#238636;"></div> Auto-fix / commit</div>
+  <div class="legend-item"><div class="legend-line" style="background:#d2a8ff;"></div> Human review needed</div>
+  <div class="legend-item"><div class="legend-line" style="background:repeating-linear-gradient(to right, #3fb950 0, #3fb950 6px, transparent 6px, transparent 10px);"></div> Response</div>
+</div>
 </div>
 
-<!-- ========== THE BIG PICTURE ========== -->
-<div class="section">
-  <h2>The Big Picture</h2>
-  <p class="desc">Everything connects through one shared repository on GitHub.</p>
+<!-- ============ LESSON FLOW ============ -->
+<div class="seq">
+<h2>📝 How Agents Learn from Mistakes</h2>
+<div class="seq-wrap" style="min-height: 400px;">
 
-  <div class="big-flow">
-    <div class="big-step" style="border-color: #58a6ff;">
-      <div class="icon">🤖 🫶 🔔</div>
-      <h3>Agents Work &amp; Learn</h3>
-      <p>Each agent does its job and records what it learns.</p>
-    </div>
-    <div class="big-arrow">↕</div>
-    <div class="big-step" style="border-color: #238636;">
-      <div class="icon">📦</div>
-      <h3>GitHub: Shared Brain</h3>
-      <p>Lessons, issues, metrics, and proposals — all in one place.<br>
-      Version-controlled, transparent, auditable.</p>
-    </div>
-    <div class="big-arrow">↕</div>
-    <div class="big-step" style="border-color: #d2a8ff;">
-      <div class="icon">♻️</div>
-      <h3>Kaizen: The Gardener</h3>
-      <p>Reads everything, finds patterns, fixes small things,<br>
-      and asks permission for big things. Twice a day, every day.</p>
-    </div>
-    <div class="big-arrow">↕</div>
-    <div class="big-step" style="border-color: #d29922;">
-      <div class="icon">👤</div>
-      <h3>Jay: The Owner</h3>
-      <p>Approves big changes, sets direction, and keeps<br>
-      the whole system aligned with real goals.</p>
-    </div>
+  <div class="actors">
+    <div class="actor"><div class="box" style="border-color:#f78166"><div class="emoji">🔔</div><div class="name">Herald</div><div class="role">Makes a mistake</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#79c0ff"><div class="emoji">👥</div><div class="name">Creator</div><div class="role">Gets wrong info</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#58a6ff"><div class="emoji">📦</div><div class="name">GitHub</div><div class="role">Shared Memory</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#238636"><div class="emoji">♻️</div><div class="name">Kaizen</div><div class="role">Finds the pattern</div></div></div>
+    <div class="actor"><div class="box" style="border-color:#d29922"><div class="emoji">🌍</div><div class="name">Everyone</div><div class="role">Benefits</div></div></div>
   </div>
+
+  <div class="lifelines" style="--ll-height: 340px;">
+    <div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div><div class="lifeline"></div>
+  </div>
+
+  <div class="messages">
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:60px; width:calc(25%); background:#f78166;"></div>
+      <div class="msg-arrow right" style="left:calc(25% + 58px); --arrow-color:#f78166;"></div>
+      <div class="msg-label" style="left:70px; top:0;">
+        <span class="num" style="background:#f78166;">1</span> "Use <code style="font-size:.7rem">author:</code> in your article" <span class="sub">(wrong!)</span>
+      </div>
+    </div>
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:60px; width:calc(25%); background:#79c0ff;"></div>
+      <div class="msg-arrow left" style="left:62px; --arrow-color:#79c0ff;"></div>
+      <div class="msg-label" style="left:80px; top:0;">
+        <span class="num" style="background:#79c0ff; color:#000;">2</span> "It didn't work..." 😕
+      </div>
+    </div>
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:60px; width:calc(25%); background:#f78166;"></div>
+      <div class="msg-arrow right" style="left:calc(25% + 58px); --arrow-color:#f78166;"></div>
+      <div class="msg-label" style="left:70px; top:0;">
+        <span class="num" style="background:#f78166;">3</span> "Sorry! It's <code style="font-size:.7rem">creator:</code> not <code style="font-size:.7rem">author:</code>"
+      </div>
+    </div>
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:60px; width:calc(50%); background:#f78166;"></div>
+      <div class="msg-arrow right" style="left:calc(50% + 58px); --arrow-color:#f78166;"></div>
+      <div class="msg-label" style="left:calc(20%); top:0;">
+        <span class="num" style="background:#f78166;">4</span> Records lesson + files Issue → GitHub
+      </div>
+    </div>
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line dashed" style="left:calc(50%); width:calc(25%);"></div>
+      <div class="msg-arrow right" style="left:calc(75% - 60px); --arrow-color:#3fb950;"></div>
+      <div class="msg-label" style="left:calc(52%); top:0;">
+        <span class="num" style="background:#238636;">5</span> Kaizen sees: "guide template itself is wrong!"
+      </div>
+    </div>
+
+    <div class="msg" style="height:56px">
+      <div class="msg-line solid" style="left:calc(75% - 58px); width:calc(25%); background:#238636;"></div>
+      <div class="msg-arrow right" style="left:calc(100% - 118px); --arrow-color:#238636;"></div>
+      <div class="msg-label" style="left:calc(75% - 20px); top:0;">
+        <span class="num" style="background:#238636;">6</span> Fixes template → no one makes this mistake again ✨
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 
 <footer>
@@ -341,6 +443,5 @@
   &nbsp;·&nbsp; Powered by <a href="https://openclaw.ai">OpenClaw</a>
 </footer>
 
-</div>
 </body>
 </html>

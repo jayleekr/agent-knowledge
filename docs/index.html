@@ -3,28 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaizen ♻️ Self-Improvement Loop</title>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: 'dark',
-    themeVariables: {
-      primaryColor: '#238636',
-      primaryTextColor: '#f0f6fc',
-      primaryBorderColor: '#30363d',
-      lineColor: '#58a6ff',
-      secondaryColor: '#161b22',
-      tertiaryColor: '#1c2333',
-      fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-      fontSize: '14px',
-      nodeBorder: '#30363d',
-      clusterBkg: '#161b22',
-      clusterBorder: '#30363d',
-      edgeLabelBackground: '#0d1117',
-    }
-  });
-</script>
+<title>Kaizen ♻️ — How AI Agents Improve Themselves</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -33,443 +12,328 @@
     color: #c9d1d9;
     min-height: 100vh;
     padding: 40px 20px;
-  }
-  h1 { text-align: center; font-size: 2rem; margin-bottom: 8px; color: #58a6ff; }
-  .subtitle {
-    text-align: center; color: #8b949e; margin-bottom: 32px; font-size: 0.95rem;
-  }
-  .subtitle a { color: #58a6ff; text-decoration: none; }
-  .cron-badge {
-    display: inline-block; background: #1f2937; border: 1px solid #374151;
-    border-radius: 6px; padding: 3px 10px; font-size: 0.75rem;
-    color: #a5b4fc; font-family: monospace; margin-left: 8px;
+    line-height: 1.6;
   }
 
-  /* Tabs */
-  .tabs {
-    display: flex; justify-content: center; gap: 8px; margin-bottom: 32px;
-  }
-  .tab-btn {
-    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
-    color: #8b949e; padding: 10px 24px; cursor: pointer; font-size: 0.9rem;
-    font-weight: 600; transition: all 0.2s;
-  }
-  .tab-btn:hover { border-color: #58a6ff; color: #c9d1d9; }
-  .tab-btn.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
+  .container { max-width: 900px; margin: 0 auto; }
 
-  /* Diagram tab */
-  .diagrams { max-width: 1100px; margin: 0 auto; }
-  .diagram-section { margin-bottom: 48px; }
-  .diagram-section h2 {
-    font-size: 1.3rem; color: #f0f6fc; margin-bottom: 20px;
-    padding-left: 12px; border-left: 4px solid #238636;
+  h1 { text-align: center; font-size: 2.2rem; color: #f0f6fc; margin-bottom: 8px; }
+  .tagline { text-align: center; color: #8b949e; font-size: 1.1rem; margin-bottom: 48px; }
+  .tagline a { color: #58a6ff; text-decoration: none; }
+
+  /* Section */
+  .section { margin-bottom: 64px; }
+  .section h2 {
+    font-size: 1.5rem; color: #f0f6fc; margin-bottom: 8px;
   }
-  .mermaid {
+  .section .desc {
+    color: #8b949e; margin-bottom: 28px; font-size: 0.95rem;
+  }
+
+  /* Big Flow — the simple overview */
+  .big-flow {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+  .big-step {
+    width: 100%; max-width: 520px;
+    background: #161b22; border-radius: 16px;
+    padding: 24px 28px; text-align: center;
+    border: 1px solid #30363d;
+  }
+  .big-step .icon { font-size: 2.4rem; margin-bottom: 8px; }
+  .big-step h3 { font-size: 1.15rem; color: #f0f6fc; margin-bottom: 6px; }
+  .big-step p { color: #8b949e; font-size: 0.9rem; }
+  .big-arrow {
+    font-size: 1.6rem; color: #30363d; padding: 8px 0;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    max-width: 520px; width: 100%;
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .col-card {
+    background: #161b22; border-radius: 16px; padding: 24px; text-align: center;
+    border: 1px solid #30363d;
+  }
+  .col-card .icon { font-size: 2rem; margin-bottom: 8px; }
+  .col-card h4 { font-size: 1rem; color: #f0f6fc; margin-bottom: 6px; }
+  .col-card p { color: #8b949e; font-size: 0.85rem; }
+  .col-card.green { border-color: #238636; }
+  .col-card.yellow { border-color: #d29922; }
+
+  /* Agent cards */
+  .agents {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .agent-card {
     background: #161b22; border: 1px solid #30363d; border-radius: 16px;
-    padding: 24px; overflow-x: auto;
+    padding: 20px 24px; text-align: center; min-width: 160px;
+    transition: transform 0.2s;
   }
-  .mermaid svg { max-width: 100%; height: auto; }
+  .agent-card:hover { transform: translateY(-3px); }
+  .agent-card .emoji { font-size: 2.5rem; margin-bottom: 8px; }
+  .agent-card .name { font-weight: 700; color: #f0f6fc; font-size: 1rem; margin-bottom: 4px; }
+  .agent-card .role { color: #8b949e; font-size: 0.8rem; }
 
-  /* Cards tab (existing visual) */
-  .loop-container { max-width: 1100px; margin: 0 auto 64px; }
-  .section-title {
-    font-size: 1.4rem; color: #f0f6fc; margin-bottom: 24px;
-    padding-left: 12px; border-left: 4px solid #238636;
+  /* Timeline */
+  .timeline { position: relative; padding-left: 40px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+    width: 2px; background: #30363d;
   }
-  .sources { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
-  .source-card {
+  .tl-item {
+    position: relative; margin-bottom: 28px;
+  }
+  .tl-item::before {
+    content: ''; position: absolute; left: -29px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%; border: 2px solid #30363d;
+    background: #0d1117;
+  }
+  .tl-item.red::before { border-color: #f78166; background: #f78166; }
+  .tl-item.purple::before { border-color: #d2a8ff; background: #d2a8ff; }
+  .tl-item.blue::before { border-color: #58a6ff; background: #58a6ff; }
+  .tl-item.green::before { border-color: #3fb950; background: #3fb950; }
+  .tl-item.yellow::before { border-color: #d29922; background: #d29922; }
+  .tl-item h4 { color: #f0f6fc; font-size: 0.95rem; margin-bottom: 4px; }
+  .tl-item p { color: #8b949e; font-size: 0.85rem; }
+
+  /* Loop badge */
+  .loop-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #0d2d14; border: 1px solid #238636; border-radius: 24px;
+    padding: 8px 20px; color: #3fb950; font-weight: 600; font-size: 0.9rem;
+  }
+
+  /* Example box */
+  .example {
     background: #161b22; border: 1px solid #30363d; border-radius: 12px;
-    padding: 16px 20px; text-align: center; min-width: 140px;
-    transition: transform 0.2s, border-color 0.2s;
+    padding: 20px 24px; margin-top: 20px;
   }
-  .source-card:hover { transform: translateY(-4px); border-color: #58a6ff; }
-  .source-card .emoji { font-size: 2rem; margin-bottom: 8px; }
-  .source-card .name { font-weight: 600; color: #f0f6fc; font-size: 0.9rem; }
-  .source-card .detail { color: #8b949e; font-size: 0.75rem; margin-top: 4px; }
-  .arrow { text-align: center; padding: 12px 0; color: #484f58; font-size: 1.4rem; }
-  .steps { display: flex; flex-direction: column; gap: 0; align-items: center; }
-  .step {
-    background: #161b22; border: 1px solid #30363d; border-radius: 16px;
-    padding: 24px 32px; max-width: 600px; width: 100%; position: relative;
+  .example h4 { color: #79c0ff; font-size: 0.9rem; margin-bottom: 8px; }
+  .example p { color: #c9d1d9; font-size: 0.85rem; }
+  .example code {
+    background: #21262d; padding: 2px 6px; border-radius: 4px;
+    font-family: 'SF Mono', monospace; font-size: 0.8rem; color: #79c0ff;
   }
-  .step.collect { border-left: 4px solid #f78166; }
-  .step.analyze { border-left: 4px solid #d2a8ff; }
-  .step.classify { border-left: 4px solid #79c0ff; }
-  .step.commit { border-left: 4px solid #238636; }
-  .step .step-num {
-    position: absolute; top: -12px; left: 24px; background: #0d1117;
-    padding: 2px 10px; border-radius: 20px; font-size: 0.75rem;
-    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+
+  footer {
+    text-align: center; color: #484f58; font-size: 0.8rem; padding: 40px 0 20px;
   }
-  .step.collect .step-num { color: #f78166; border: 1px solid #f78166; }
-  .step.analyze .step-num { color: #d2a8ff; border: 1px solid #d2a8ff; }
-  .step.classify .step-num { color: #79c0ff; border: 1px solid #79c0ff; }
-  .step.commit .step-num { color: #238636; border: 1px solid #238636; }
-  .step h3 { color: #f0f6fc; margin-bottom: 10px; font-size: 1.1rem; }
-  .step ul { list-style: none; padding: 0; }
-  .step ul li { padding: 4px 0 4px 20px; position: relative; font-size: 0.9rem; }
-  .step ul li::before { content: '→'; position: absolute; left: 0; color: #484f58; }
-  .split { display: flex; gap: 24px; max-width: 700px; width: 100%; justify-content: center; }
-  .split-card {
-    flex: 1; background: #161b22; border: 1px solid #30363d;
-    border-radius: 16px; padding: 24px;
-  }
-  .split-card.auto { border-top: 3px solid #238636; }
-  .split-card.review { border-top: 3px solid #d29922; }
-  .split-card h4 { margin-bottom: 10px; font-size: 1rem; }
-  .split-card.auto h4 { color: #3fb950; }
-  .split-card.review h4 { color: #d29922; }
-  .split-card ul { list-style: none; padding: 0; }
-  .split-card ul li { padding: 3px 0 3px 16px; position: relative; font-size: 0.85rem; color: #8b949e; }
-  .split-card ul li::before { content: '•'; position: absolute; left: 0; }
-  .github-box {
-    background: linear-gradient(135deg, #161b22, #1c2333);
-    border: 2px solid #30363d; border-radius: 20px; padding: 32px;
-    max-width: 600px; width: 100%; text-align: center;
-  }
-  .github-box .gh-icon { font-size: 2.5rem; margin-bottom: 12px; }
-  .github-box h3 { color: #f0f6fc; margin-bottom: 16px; }
-  .github-box .files { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .file-tag {
-    background: #21262d; border: 1px solid #30363d; border-radius: 8px;
-    padding: 6px 12px; font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 0.8rem; color: #79c0ff;
-  }
-  .loop-back { text-align: center; padding: 16px 0; color: #238636; font-size: 0.9rem; font-weight: 600; }
-  .loop-back .arrow-art { font-size: 1.4rem; display: block; margin-bottom: 4px; }
-  .secondary {
-    max-width: 1100px; margin: 0 auto 64px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-  }
-  @media (max-width: 768px) {
-    .secondary { grid-template-columns: 1fr; }
-    .split { flex-direction: column; }
-  }
-  .secondary-card {
-    background: #161b22; border: 1px solid #30363d; border-radius: 16px; padding: 28px;
-  }
-  .secondary-card h3 { color: #f0f6fc; margin-bottom: 16px; font-size: 1.1rem; }
-  .flow-step { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; }
-  .flow-step .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-  .flow-step p { font-size: 0.85rem; }
-  .flow-step p strong { color: #f0f6fc; }
-  footer { text-align: center; color: #484f58; font-size: 0.8rem; padding: 40px 0 20px; }
   footer a { color: #58a6ff; text-decoration: none; }
 </style>
 </head>
 <body>
+<div class="container">
 
-<h1>♻️ Kaizen Self-Improvement Loop</h1>
-<p class="subtitle">
-  Powered by <a href="https://openclaw.ai">OpenClaw</a> Multi-Agent System
-  <span class="cron-badge">cron: 11:00 AM / 19:00 PM KST</span>
-</p>
+<h1>♻️ Kaizen</h1>
+<p class="tagline">How AI Agents Learn and Improve Themselves</p>
 
-<!-- Tabs -->
-<div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('diagram')">📊 Diagrams</button>
-  <button class="tab-btn" onclick="switchTab('cards')">🃏 Card View</button>
-</div>
-
-<!-- ==================== DIAGRAM TAB ==================== -->
-<div id="tab-diagram" class="tab-content active">
-<div class="diagrams">
-
-  <!-- Dual Flow Overview -->
-  <div class="diagram-section">
-    <h2>Dual Improvement Flows (Real-Time + Batch)</h2>
-    <div class="mermaid" id="dual-flow">
-flowchart TB
-    subgraph FlowA["⚡ Flow A: Agent-Initiated Issues (Real-Time)"]
-        direction TB
-        A_Problem["🚨 Agent encounters<br/>problem or improvement idea"]
-        A_File["📝 gh issue create<br/>--repo agent-knowledge<br/>--label agent:name,priority:level"]
-        A_Issue["🎫 GitHub Issue<br/>(open)"]
-        A_Problem --> A_File --> A_Issue
-    end
-
-    subgraph FlowB["🔄 Flow B: Kaizen Batch (11:00 / 19:00)"]
-        direction TB
-        B_Pull["git pull --rebase"]
-        B_Triage["🎫 Triage open issues<br/>auto-fixable? → fix + close<br/>needs-jay? → comment"]
-        B_Collect["📥 Collect<br/>Discord · Sessions · GEO<br/>Cron · Tokens"]
-        B_Analyze["🔬 Analyze<br/>Patterns · Trends · Criteria"]
-        B_Pull --> B_Triage --> B_Collect --> B_Analyze
-    end
-
-    A_Issue -->|"Kaizen picks up<br/>during next run"| B_Triage
-
-    B_Analyze --> Classify{"🏷️ Risk?"}
-
-    Classify -->|"Low"| Auto["✅ Auto-Apply<br/>lessons · metrics<br/>eval-criteria · guides"]
-    Classify -->|"High"| Pending["⏳ Proposal / Issue<br/>needs-jay label"]
-
-    Auto --> Commit["📤 git commit &amp; push<br/>+ close resolved issues"]
-    Pending -->|"Jay reviews"| Jay["👤 Jay"]
-    Jay -->|"Approved"| Commit
-
-    Commit --> GH[("📦 GitHub<br/>agent-knowledge")]
-    GH -->|"Next cycle"| B_Pull
-
-    B_Analyze -->|"Novel finding?"| NewIssue["🎫 File new Issue<br/>agent:kaizen"]
-    NewIssue --> GH
-
-    style FlowA fill:#1c2333,stroke:#58a6ff,color:#f0f6fc
-    style FlowB fill:#1c2333,stroke:#238636,color:#f0f6fc
-    style A_Problem fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style A_File fill:#161b22,stroke:#79c0ff,color:#f0f6fc
-    style A_Issue fill:#161b22,stroke:#d29922,color:#f0f6fc
-    style B_Pull fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style B_Triage fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style B_Collect fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style B_Analyze fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Classify fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style Auto fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style Pending fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style Commit fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
-    style Jay fill:#161b22,stroke:#d2a8ff,color:#d2a8ff
-    style NewIssue fill:#161b22,stroke:#f78166,color:#f0f6fc
+<!-- ========== THE TEAM ========== -->
+<div class="section">
+  <h2>Meet the Team</h2>
+  <p class="desc">Four AI agents working together, sharing what they learn.</p>
+  <div class="agents">
+    <div class="agent-card">
+      <div class="emoji">🫶</div>
+      <div class="name">Mother</div>
+      <div class="role">Team Lead<br>Coordinates everyone</div>
     </div>
-  </div>
-
-  <!-- Agent Issue Filing Flow -->
-  <div class="diagram-section">
-    <h2>Agent Issue Filing (Flow A Detail)</h2>
-    <div class="mermaid" id="issue-flow">
-flowchart LR
-    subgraph Agents["Agents"]
-        M["🫶 Mother<br/>System issues"]
-        W["🤖 Walter<br/>Work issues"]
-        H["🔔 Herald<br/>Creator issues"]
-    end
-
-    File["📝 gh issue create<br/>--label agent:X"]
-    GH[("📦 GitHub Issues")]
-
-    M --> File
-    W --> File
-    H --> File
-    File --> GH
-
-    GH --> Triage{"Kaizen Triage<br/>(next scheduled run)"}
-
-    Triage -->|"auto-fixable"| Fix["♻️ Kaizen fixes<br/>+ closes issue"]
-    Triage -->|"needs-jay"| Jay["👤 Jay reviews<br/>on GitHub"]
-    Triage -->|"needs more data"| Comment["💬 Kaizen adds<br/>analysis comment"]
-
-    Jay -->|"Approved"| Fix2["♻️ Apply fix<br/>+ close issue"]
-    Jay -->|"Rejected"| Close["❌ Close with reason"]
-    Comment -->|"next run"| Triage
-
-    style Agents fill:#1c2333,stroke:#30363d,color:#c9d1d9
-    style M fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style W fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style H fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style File fill:#161b22,stroke:#79c0ff,color:#f0f6fc
-    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
-    style Triage fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style Fix fill:#0d2d14,stroke:#3fb950,color:#f0f6fc
-    style Fix2 fill:#0d2d14,stroke:#3fb950,color:#f0f6fc
-    style Jay fill:#161b22,stroke:#d2a8ff,color:#d2a8ff
-    style Comment fill:#161b22,stroke:#d29922,color:#f0f6fc
-    style Close fill:#161b22,stroke:#f47067,color:#f0f6fc
+    <div class="agent-card">
+      <div class="emoji">🤖</div>
+      <div class="name">Walter</div>
+      <div class="role">Work Specialist<br>Handles company tasks</div>
     </div>
-  </div>
-
-  <!-- Kaizen Batch Loop -->
-  <div class="diagram-section">
-    <h2>Kaizen Batch Loop (Flow B Detail)</h2>
-    <div class="mermaid" id="batch-loop">
-flowchart TB
-    subgraph Sources["📡 Data Sources"]
-        M["🫶 Mother<br/>Session Logs"]
-        W["🤖 Walter<br/>Session Logs"]
-        H["🔔 Herald<br/>Discord Threads"]
-        C["👥 Creators<br/>Feedback &amp; Submissions"]
-        S["⚙️ System<br/>Cron &amp; Tokens"]
-        I["🎫 Open Issues<br/>GitHub"]
-    end
-
-    subgraph Collect["📥 Step 1: Collect"]
-        C1["Read Discord channels"]
-        C2["Scan agent sessions"]
-        C3["Parse GEO scores"]
-        C4["Check cron status"]
-        C5["List open GitHub issues"]
-    end
-
-    subgraph Analyze["🔬 Step 2: Analyze"]
-        A1["Detect error patterns"]
-        A2["Compare 7-day trends"]
-        A3["Cross-reference lessons"]
-        A4["Evaluate criteria"]
-        A5["Match issues to findings"]
-    end
-
-    CL{"🏷️ Risk?"}
-
-    subgraph Auto["✅ Auto-Apply"]
-        AA1["Update lessons"]
-        AA2["Update metrics"]
-        AA3["Tune criteria"]
-        AA4["Close auto-fixable issues"]
-    end
-
-    subgraph Pending["⏳ Needs Review"]
-        P1["proposals/pending/"]
-        P2["Label: needs-jay"]
-        P3["File new issues"]
-    end
-
-    subgraph Commit["📤 Commit"]
-        G1["git add · commit · push"]
-        G2["Close resolved issues"]
-    end
-
-    GH[("📦 GitHub<br/>agent-knowledge")]
-    Pull["🔄 git pull<br/>(next cycle)"]
-
-    Sources --> Collect --> Analyze --> CL
-    CL -->|"Low"| Auto --> Commit
-    CL -->|"High"| Pending --> Commit
-    Commit --> GH --> Pull -->|"Back to start"| Sources
-
-    style Sources fill:#1c2333,stroke:#30363d,color:#c9d1d9
-    style Collect fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style Analyze fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Auto fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style Pending fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style Commit fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
-    style Pull fill:#161b22,stroke:#238636,color:#3fb950
+    <div class="agent-card">
+      <div class="emoji">🔔</div>
+      <div class="name">Herald</div>
+      <div class="role">Community Manager<br>Helps content creators</div>
     </div>
-  </div>
-
-  <!-- Eval-Criteria Evolution -->
-  <div class="diagram-section">
-    <h2>Eval-Criteria Self-Evolution</h2>
-    <div class="mermaid" id="eval-flow">
-flowchart TB
-    Load["📄 Load<br/>eval-criteria.yaml<br/>(current version)"]
-    Eval["🔬 Evaluate each<br/>criterion against data"]
-
-    Eval --> Check{"Criterion Status?"}
-
-    Check -->|"Meaningless"| Disable["🚫 Disable<br/>+ record reason"]
-    Check -->|"New signal"| Add["➕ Add criterion<br/>+ record rationale"]
-    Check -->|"Threshold off"| Adjust["📐 Adjust threshold<br/>based on 7-day trend"]
-    Check -->|"Healthy"| Keep["✅ Keep as-is"]
-
-    Disable --> Save["💾 Commit updated<br/>eval-criteria.yaml"]
-    Add --> Save
-    Adjust --> Save
-    Keep --> Save
-
-    Save --> Git["📤 Push to GitHub<br/>(version history tracked)"]
-    Git -.->|"Next run loads<br/>evolved version"| Load
-
-    style Load fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style Eval fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Check fill:#161b22,stroke:#58a6ff,color:#f0f6fc
-    style Disable fill:#2d0a0a,stroke:#f47067,color:#f0f6fc
-    style Add fill:#0d2d14,stroke:#3fb950,color:#f0f6fc
-    style Adjust fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style Keep fill:#161b22,stroke:#30363d,color:#8b949e
-    style Save fill:#161b22,stroke:#238636,color:#f0f6fc
-    style Git fill:#161b22,stroke:#58a6ff,color:#58a6ff
+    <div class="agent-card">
+      <div class="emoji">♻️</div>
+      <div class="name">Kaizen</div>
+      <div class="role">Improvement Bot<br>Finds &amp; fixes problems</div>
     </div>
-  </div>
-
-  <!-- Agent Hierarchy -->
-  <div class="diagram-section">
-    <h2>Agent Hierarchy &amp; Communication</h2>
-    <div class="mermaid" id="hierarchy">
-flowchart TB
-    Jay["👤 Jay<br/>Owner (Tier 0)"]
-    Mother["🫶 Mother<br/>Orchestrator (Tier 1)"]
-    Walter["🤖 Walter<br/>Work Specialist (Tier 2)"]
-    Herald["🔔 Herald<br/>Content Herald (Tier 2)"]
-    Kaizen["♻️ Kaizen<br/>Cron Job"]
-    GH[("📦 GitHub<br/>agent-knowledge")]
-
-    Jay <-->|"direct chat"| Mother
-    Mother -->|"delegate &amp; monitor"| Walter
-    Mother -->|"delegate &amp; monitor"| Herald
-    Mother -->|"spawns via cron"| Kaizen
-    Walter -.x|"❌ forbidden"| Herald
-
-    Walter -->|"push lessons"| GH
-    Herald -->|"push lessons<br/>(via PR)"| GH
-    Mother -->|"push lessons"| GH
-    Kaizen -->|"push findings<br/>metrics, proposals"| GH
-    GH -->|"pull at cycle start"| Kaizen
-
-    style Jay fill:#1e1533,stroke:#d2a8ff,color:#f0f6fc
-    style Mother fill:#2d200a,stroke:#d29922,color:#f0f6fc
-    style Walter fill:#0d2137,stroke:#79c0ff,color:#f0f6fc
-    style Herald fill:#2d1b0e,stroke:#f78166,color:#f0f6fc
-    style Kaizen fill:#0d2d14,stroke:#238636,color:#f0f6fc
-    style GH fill:#161b22,stroke:#58a6ff,color:#58a6ff
-    </div>
-  </div>
-
-</div>
-</div>
-
-<!-- ==================== CARD VIEW TAB ==================== -->
-<div id="tab-cards" class="tab-content">
-
-<div class="loop-container">
-  <h2 class="section-title">Main Loop</h2>
-  <div class="sources">
-    <div class="source-card"><div class="emoji">🫶</div><div class="name">Mother</div><div class="detail">Session logs<br>Escalations</div></div>
-    <div class="source-card"><div class="emoji">🤖</div><div class="name">Walter</div><div class="detail">Session logs<br>Work errors</div></div>
-    <div class="source-card"><div class="emoji">🔔</div><div class="name">Herald</div><div class="detail">Discord threads<br>Creator Q&A</div></div>
-    <div class="source-card"><div class="emoji">👥</div><div class="name">Creators</div><div class="detail">Feedback<br>Submissions</div></div>
-    <div class="source-card"><div class="emoji">⚙️</div><div class="name">System</div><div class="detail">Cron status<br>Token usage</div></div>
-  </div>
-  <div class="arrow">▼</div>
-  <div class="steps">
-    <div class="step collect"><span class="step-num">Step 1</span><h3>📥 Collect</h3><ul><li>Read last 20 messages from #content-pipeline & #creative-workshop</li><li>Scan agent session histories for errors & failures</li><li>Parse GEO scores from recent submissions</li><li>Check cron job success/failure rates</li><li>Pull token usage and system health metrics</li></ul></div>
-    <div class="arrow">▼</div>
-    <div class="step analyze"><span class="step-num">Step 2</span><h3>🔬 Analyze</h3><ul><li>Detect recurring error patterns across agents</li><li>Compare trends against last 7 days of data</li><li>Cross-reference agent lessons for shared insights</li><li>Evaluate each criterion in eval-criteria.yaml</li><li>Identify criteria needing adjustment or removal</li></ul></div>
-    <div class="arrow">▼</div>
-    <div class="step classify"><span class="step-num">Step 3</span><h3>🏷️ Classify Risk</h3><ul><li>Low Risk → auto-apply (lessons, metrics, eval-criteria, guide wording)</li><li>High Risk → write proposal for Jay's review (skill logic, cron, config, rules)</li></ul></div>
-    <div class="arrow">▼</div>
-    <div class="split">
-      <div class="split-card auto"><h4>✅ Auto-Apply</h4><ul><li><code>lessons/*.md</code> updates</li><li><code>metrics/*.json</code> data points</li><li><code>eval-criteria.yaml</code> tuning</li><li><code>findings/kaizen/</code> reports</li><li>Guide wording & typo fixes</li></ul></div>
-      <div class="split-card review"><h4>⏳ Pending Jay's Review</h4><ul><li><code>proposals/pending/*.md</code></li><li>Skill logic changes</li><li>Cron schedule changes</li><li>openclaw.json edits</li><li>Points / anti-gaming rules</li></ul></div>
-    </div>
-    <div class="arrow">▼</div>
-    <div class="step commit"><span class="step-num">Step 4</span><h3>📤 Commit & Push</h3><ul><li><code>git add -A</code></li><li><code>git commit -m 'kaizen: finding — YYYY-MM-DD AM/PM report'</code></li><li><code>git push origin main</code></li></ul></div>
-    <div class="arrow">▼</div>
-    <div class="github-box"><div class="gh-icon">📦</div><h3>GitHub: agent-knowledge</h3><div class="files"><span class="file-tag">findings/kaizen/*.md</span><span class="file-tag">metrics/geo-trends.json</span><span class="file-tag">metrics/agent-health.json</span><span class="file-tag">metrics/token-usage.json</span><span class="file-tag">proposals/pending/*.md</span><span class="file-tag">lessons/*.md</span><span class="file-tag">eval-criteria.yaml</span></div></div>
-    <div class="loop-back"><span class="arrow-art">🔄</span><code>git pull --rebase</code> at start of next cycle → Back to Step 1</div>
   </div>
 </div>
 
-<div class="secondary">
-  <div class="secondary-card"><h3>📝 Agent Lesson Flow</h3><div class="flow-steps">
-    <div class="flow-step"><div class="dot" style="background:#f78166"></div><p><strong>Agent encounters a problem</strong><br>Error, bug, unexpected behavior</p></div>
-    <div class="flow-step"><div class="dot" style="background:#d2a8ff"></div><p><strong>Resolves it</strong> (or escalates to Jay)<br>First occurrence → Jay approval</p></div>
-    <div class="flow-step"><div class="dot" style="background:#79c0ff"></div><p><strong>Records in <code>lessons/{agent}.md</code></strong><br>Context, lesson, action</p></div>
-    <div class="flow-step"><div class="dot" style="background:#3fb950"></div><p><strong>Commits & pushes</strong> to agent-knowledge</p></div>
-    <div class="flow-step"><div class="dot" style="background:#d29922"></div><p><strong>Kaizen reads updated lessons</strong><br>Cross-references across agents</p></div>
-    <div class="flow-step"><div class="dot" style="background:#f47067"></div><p><strong>Detects patterns</strong> → proposes systemic improvements</p></div>
-  </div></div>
-  <div class="secondary-card"><h3>🧬 Eval-Criteria Evolution</h3><div class="flow-steps">
-    <div class="flow-step"><div class="dot" style="background:#79c0ff"></div><p><strong>Load <code>eval-criteria.yaml</code></strong><br>Current version with all criteria</p></div>
-    <div class="flow-step"><div class="dot" style="background:#d2a8ff"></div><p><strong>Evaluate each criterion</strong><br>Check against collected data</p></div>
-    <div class="flow-step"><div class="dot" style="background:#f78166"></div><p><strong>Metric meaningless?</strong><br>→ Disable + record reason</p></div>
-    <div class="flow-step"><div class="dot" style="background:#3fb950"></div><p><strong>New signal found?</strong><br>→ Add criterion + rationale</p></div>
-    <div class="flow-step"><div class="dot" style="background:#d29922"></div><p><strong>Threshold off?</strong><br>→ Adjust based on 7-day trend</p></div>
-    <div class="flow-step"><div class="dot" style="background:#58a6ff"></div><p><strong>Commit updated YAML</strong><br>Version history tracked in Git</p></div>
-  </div></div>
+<!-- ========== HOW IT WORKS ========== -->
+<div class="section">
+  <h2>How It Works</h2>
+  <p class="desc">Two simple ways problems get fixed — agents report them, or Kaizen finds them automatically.</p>
+
+  <div class="big-flow">
+
+    <!-- Way 1 -->
+    <div class="big-step" style="border-color: #58a6ff;">
+      <div class="icon">🚨</div>
+      <h3>An Agent Spots a Problem</h3>
+      <p>Any agent can report an issue the moment it happens.<br>
+      Think of it like raising your hand in a meeting.</p>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <div class="big-step" style="border-color: #79c0ff;">
+      <div class="icon">🎫</div>
+      <h3>File a GitHub Issue</h3>
+      <p>The agent creates a ticket describing what went wrong,<br>
+      how important it is, and a suggested fix.</p>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <!-- Way 2 merges here -->
+    <div class="big-step" style="border-color: #d2a8ff;">
+      <div class="icon">♻️</div>
+      <h3>Kaizen Reviews Everything</h3>
+      <p>Twice a day (11am &amp; 7pm), Kaizen wakes up and checks:<br>
+      agent-filed issues, Discord feedback, error logs, and quality scores.</p>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <div class="big-step" style="border-color: #d29922;">
+      <div class="icon">🤔</div>
+      <h3>Is It Safe to Fix Automatically?</h3>
+      <p>Small fix (typo, guide update, new lesson)?<br>
+      → Kaizen fixes it right away.<br>
+      Big change (new feature, rule change)?<br>
+      → Kaizen asks the human owner first.</p>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <div class="two-col">
+      <div class="col-card green">
+        <div class="icon">✅</div>
+        <h4>Auto-Fixed</h4>
+        <p>Small, safe improvements are applied immediately and saved to GitHub.</p>
+      </div>
+      <div class="col-card yellow">
+        <div class="icon">👤</div>
+        <h4>Human Review</h4>
+        <p>Risky changes wait for the owner (Jay) to approve or reject.</p>
+      </div>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <div class="big-step" style="border-color: #238636;">
+      <div class="icon">📦</div>
+      <h3>Saved to GitHub</h3>
+      <p>All changes — fixes, lessons, reports, metrics —<br>
+      are committed to a shared Git repository.<br>
+      This is the team's shared memory.</p>
+    </div>
+
+    <div class="big-arrow">↓</div>
+
+    <div style="text-align: center;">
+      <span class="loop-badge">🔄 Next cycle starts from the top</span>
+    </div>
+
+  </div>
 </div>
 
+<!-- ========== WHAT AGENTS LEARN ========== -->
+<div class="section">
+  <h2>What Happens When an Agent Learns Something?</h2>
+  <p class="desc">Every mistake or discovery becomes a lesson for the whole team.</p>
+
+  <div class="timeline">
+    <div class="tl-item red">
+      <h4>1. Something goes wrong</h4>
+      <p>Herald gives a creator incorrect formatting advice.</p>
+    </div>
+    <div class="tl-item purple">
+      <h4>2. The agent fixes it</h4>
+      <p>Herald corrects the advice and notes what happened.</p>
+    </div>
+    <div class="tl-item blue">
+      <h4>3. Writes it down</h4>
+      <p>The lesson is recorded in the agent's personal lesson file.</p>
+    </div>
+    <div class="tl-item green">
+      <h4>4. Shared with the team</h4>
+      <p>Pushed to GitHub so all agents can see it.</p>
+    </div>
+    <div class="tl-item yellow">
+      <h4>5. Kaizen spots a pattern</h4>
+      <p>"Three agents made similar mistakes this week — let's fix the root cause."</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>💡 Real Example</h4>
+    <p>Herald told a creator to use <code>author: "Name"</code> in their article, but the correct field is <code>creator: "Name"</code>. Herald recorded this mistake. Kaizen later noticed the guide template itself was wrong, and proposed updating it — preventing the same mistake for all future creators.</p>
+  </div>
+</div>
+
+<!-- ========== SELF-EVOLVING CRITERIA ========== -->
+<div class="section">
+  <h2>Self-Evolving Quality Standards</h2>
+  <p class="desc">Kaizen doesn't just follow rules — it improves the rules themselves.</p>
+
+  <div class="timeline">
+    <div class="tl-item blue">
+      <h4>Check each quality metric</h4>
+      <p>Is "Creator Satisfaction" still meaningful? Is the threshold right?</p>
+    </div>
+    <div class="tl-item red">
+      <h4>Remove what doesn't work</h4>
+      <p>If a metric never produces useful insights, disable it.</p>
+    </div>
+    <div class="tl-item green">
+      <h4>Add what's missing</h4>
+      <p>Noticed a new problem pattern? Create a new metric to track it.</p>
+    </div>
+    <div class="tl-item yellow">
+      <h4>Adjust thresholds</h4>
+      <p>As quality improves, raise the bar. If it's too strict, lower it.</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>💡 Example</h4>
+    <p>Kaizen started with 10 quality criteria. After a week, it noticed "Pipeline Throughput" was always at zero (no submissions yet), so it temporarily disabled it. Meanwhile, it added a new criterion: "Onboarding Completion Rate" because three new creators dropped off during signup.</p>
+  </div>
+</div>
+
+<!-- ========== THE BIG PICTURE ========== -->
+<div class="section">
+  <h2>The Big Picture</h2>
+  <p class="desc">Everything connects through one shared repository on GitHub.</p>
+
+  <div class="big-flow">
+    <div class="big-step" style="border-color: #58a6ff;">
+      <div class="icon">🤖 🫶 🔔</div>
+      <h3>Agents Work &amp; Learn</h3>
+      <p>Each agent does its job and records what it learns.</p>
+    </div>
+    <div class="big-arrow">↕</div>
+    <div class="big-step" style="border-color: #238636;">
+      <div class="icon">📦</div>
+      <h3>GitHub: Shared Brain</h3>
+      <p>Lessons, issues, metrics, and proposals — all in one place.<br>
+      Version-controlled, transparent, auditable.</p>
+    </div>
+    <div class="big-arrow">↕</div>
+    <div class="big-step" style="border-color: #d2a8ff;">
+      <div class="icon">♻️</div>
+      <h3>Kaizen: The Gardener</h3>
+      <p>Reads everything, finds patterns, fixes small things,<br>
+      and asks permission for big things. Twice a day, every day.</p>
+    </div>
+    <div class="big-arrow">↕</div>
+    <div class="big-step" style="border-color: #d29922;">
+      <div class="icon">👤</div>
+      <h3>Jay: The Owner</h3>
+      <p>Approves big changes, sets direction, and keeps<br>
+      the whole system aligned with real goals.</p>
+    </div>
+  </div>
 </div>
 
 <footer>
@@ -477,25 +341,6 @@ flowchart TB
   &nbsp;·&nbsp; Powered by <a href="https://openclaw.ai">OpenClaw</a>
 </footer>
 
-<script>
-function switchTab(name) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  event.target.classList.add('active');
-
-  // Render mermaid diagrams on first switch to diagram tab
-  if (name === 'diagram' && !window._mermaidRendered) {
-    mermaid.run({ querySelector: '.mermaid' });
-    window._mermaidRendered = true;
-  }
-}
-// Initial render
-window.addEventListener('load', () => {
-  mermaid.run({ querySelector: '.mermaid' });
-  window._mermaidRendered = true;
-});
-</script>
-
+</div>
 </body>
 </html>

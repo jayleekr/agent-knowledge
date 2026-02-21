@@ -3,10 +3,11 @@
   {"date": "2026-02-21", "period": "h11m30", "score": 75, "level": 1},
   {"date": "2026-02-21", "period": "h12m0", "score": 78, "level": 1},
   {"date": "2026-02-21", "period": "h12m30", "score": 80, "level": 1},
-  {"date": "2026-02-21", "period": "h13m0", "score": 82, "level": 1, "level2_eligible": true},
+  {"date": "2026-02-21", "period": "h13m0", "score": 82, "level": 1},
   {"date": "2026-02-21", "period": "h13m30", "score": 82, "level": 1},
   {"date": "2026-02-21", "period": "h14m0", "score": 82, "level": 1},
   {"date": "2026-02-21", "period": "h14m30", "score": 82, "level": 1},
-  {"date": "2026-02-21", "period": "h15m0", "score": 82, "level": 2, "note": "Level 2 inaugural"},
-  {"date": "2026-02-21", "period": "h15m30", "score": 84, "level": 2}
+  {"date": "2026-02-21", "period": "h15m0", "score": 82, "level": 2},
+  {"date": "2026-02-21", "period": "h15m30", "score": 84, "level": 2},
+  {"date": "2026-02-21", "period": "h16m0", "score": 84, "level": 2}
 ]

@@ -1,0 +1,15 @@
+{
+  "last_run": "2026-02-21T02:00:00Z",
+  "results": {
+    "script_runnable": { "pass": true, "consecutive_fails": 0, "message": "bash -n passed" },
+    "eval_criteria_valid": { "pass": true, "consecutive_fails": 0, "message": "All required fields present in all 10 criteria" },
+    "discord_access": { "pass": true, "consecutive_fails": 0, "message": "Read 1 message from #content-pipeline" },
+    "github_access": { "pass": true, "consecutive_fails": 0, "message": "gh issue list succeeded (0 open issues)" },
+    "report_generation": { "pass": true, "consecutive_fails": 0, "message": "Report written to 2026-02-21-h11.md" },
+    "no_regression": { "pass": true, "consecutive_fails": 0, "message": "No score regression vs 2026-02-20-pm" },
+    "git_push_success": { "pass": true, "consecutive_fails": 0, "message": "Repo clean, push dry-run OK" }
+  },
+  "maturity_score": 72,
+  "level": 1,
+  "consecutive_all_pass": 1
+}

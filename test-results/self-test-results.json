@@ -1,0 +1,15 @@
+{
+  "last_run": "2026-02-21T11:38:00+09:00",
+  "results": {
+    "script_runnable": { "pass": true, "consecutive_fails": 0, "message": "bash -n passed" },
+    "eval_criteria_valid": { "pass": true, "consecutive_fails": 0, "message": "YAML valid, all 10 criteria have required fields" },
+    "discord_access": { "pass": true, "consecutive_fails": 0, "message": "Read 1 message from #content-pipeline" },
+    "github_access": { "pass": true, "consecutive_fails": 0, "message": "gh issue list succeeded (0 open issues)" },
+    "report_generation": { "pass": true, "consecutive_fails": 0, "message": "Report written to 2026-02-21-h11m30.md" },
+    "no_regression": { "pass": true, "consecutive_fails": 0, "message": "Score stable/improving vs h11 (72→75)" },
+    "git_push_success": { "pass": true, "consecutive_fails": 0, "message": "Push pending verification" }
+  },
+  "maturity_score": 75,
+  "level": 1,
+  "consecutive_all_pass": 2
+}

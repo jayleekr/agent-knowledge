@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-21T14:38:00+09:00",
+  "last_run": "2026-02-21T15:08:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -9,8 +9,16 @@
     "no_regression": { "pass": true, "consecutive_fails": 0 },
     "git_push_success": { "pass": true, "consecutive_fails": 0 }
   },
+  "agent_test_results": {
+    "mother_cron_health": { "pass": true, "note": "weekend — only kaizen cron" },
+    "mother_heartbeat_active": { "pass": false, "consecutive_fails": 1, "note": "lastHeartbeat: null" },
+    "mother_memory_current": { "pass": true, "note": "2026-02-21.md exists" },
+    "walter_session_health": { "skip": true, "note": "weekend" },
+    "walter_github_tracker": { "skip": true, "note": "weekend" },
+    "herald_session_health": { "pass": true, "note": "last active 2026-02-20" }
+  },
   "maturity_score": 82,
-  "level": 1,
-  "consecutive_all_pass": 8,
-  "level2_eligible": true
+  "level": 2,
+  "consecutive_all_pass": 9,
+  "level2_consecutive_pass": 0
 }

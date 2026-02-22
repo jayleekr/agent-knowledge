@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-21T23:08:00+09:00",
+  "last_run": "2026-02-22T10:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -10,13 +10,13 @@
     "git_push_success": { "pass": true, "consecutive_fails": 0 }
   },
   "agent_test_results": {
-    "mother_heartbeat_active": { "pass": true, "consecutive_fails": 0 },
-    "mother_memory_current": { "pass": true },
-    "walter_session_health": { "skip": true, "note": "weekend" },
-    "herald_session_health": { "pass": true }
+    "cron_health_check": { "pass": false, "consecutive_fails": 4, "note": "openclaw cron list hangs after doctor warning. Issues #4, #7 open." },
+    "mother_self_reporting": { "pass": true, "consecutive_fails": 0 },
+    "walter_self_reporting": { "pass": true, "consecutive_fails": 0 },
+    "herald_issue_reporting": { "pass": false, "consecutive_fails": 4, "note": "Herald has never filed any self-reporting issues" }
   },
-  "maturity_score": 84,
+  "maturity_score": 80,
   "level": 2,
-  "consecutive_all_pass": 25,
-  "level2_consecutive_pass": 16
+  "consecutive_all_pass": 0,
+  "level2_consecutive_pass": 0
 }

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-23T04:35:00+09:00",
+  "last_run": "2026-02-23T05:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,10 +12,11 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false, 
-      "consecutive_fails": 2, 
-      "note": "1 error: Weekly Architect Review (persisting 2 days)",
+      "consecutive_fails": 3, 
+      "note": "1 error: Weekly Architect Review (persisting 3 days, zero progress)",
       "issues_filed": ["#11"],
-      "issue_status": "open"
+      "issue_status": "open",
+      "issue_stale_hours": 10
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -31,7 +32,7 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 40, 
+      "consecutive_fails": 41, 
       "note": "Herald NEVER filed issues - critical failure worsening",
       "escalated": true
     }
@@ -42,5 +43,5 @@
   "level2_consecutive_pass": 0,
   "level1_score": 93,
   "level2_score": 50,
-  "warning": "Maturity declining due to unresolved issues"
+  "warning": "Maturity below threshold (need 80+), unresolved issues persisting"
 }

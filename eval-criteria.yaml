@@ -65,6 +65,23 @@ criteria:
     threshold: 0.50
     enabled: true
 
+  - id: token_tracker_accuracy
+    name: Token Tracker Accuracy
+    description: Token Tracker가 전체 사용량을 정확히 집계하는지
+    source: cron_runs
+    metric: reported_vs_actual_ratio
+    threshold: 0.8
+    enabled: true
+    note: "Tracker가 자기 세션만 추적하는 버그 발견 (2026-02-21). 수정 후 모니터링."
+
+  - id: daily_cost_threshold
+    name: Daily Cost Threshold
+    description: 일일 비용이 $50 이하인지
+    source: token_usage_md
+    metric: daily_total_usd
+    threshold: 50
+    enabled: true
+
   - id: escalation_learning
     name: Escalation Learning Rate
     description: Ratio of repeated escalations for same pattern (lower is better)

@@ -1,0 +1,122 @@
+{
+  "version": 2,
+  "updatedAt": "2026-02-22",
+  "source": "~/CodeWorkspace/hypeproof/members.md",
+  "creators": [
+    {
+      "id": "1186944844401225808",
+      "username": "jaylee_59200",
+      "displayName": "Jay (이재원)",
+      "role": "admin",
+      "title": "Staff Software Engineer @ Silicon Valley Tech Company",
+      "education": "Hanyang University — CS Ph.D Cand.",
+      "expertise": ["AI에이전트", "차량SW", "PM", "OpenClaw", "블록체인", "시스템아키텍처"],
+      "domain": "Tech / Lead",
+      "interests": ["AI코딩", "에이전트아키텍처", "MCP", "양자컴퓨팅"],
+      "reactions": [],
+      "articles": ["building-ai-assistant-with-openclaw", "building-ai-content-platform", "ai-scores-your-writing-geo-qa"],
+      "nudgeHistory": [],
+      "notes": "Admin. 칼럼 3편+. 넛지 대상 아님."
+    },
+    {
+      "id": "390511709019832330",
+      "username": "jishin.addkim",
+      "displayName": "JY (신진용)",
+      "role": "creator",
+      "title": "AI/ML Engineer @ Remember | Ex-Quant",
+      "education": "M.S. in Physics",
+      "expertise": ["AI/ML엔지니어링", "퀀트", "웹프론트엔드", "물리학"],
+      "domain": "Research / AI Engineering",
+      "interests": ["AI코딩도구", "microgpt", "Agentic Workflow", "Claude Code"],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [
+        {
+          "date": "2026-02-22",
+          "column": "ai-coding-agent-vs-senior",
+          "question": "AI/ML 파이프라인 디버깅에서 에이전트가 절대 못 하는 작업이 있었는지",
+          "responded": false
+        }
+      ],
+      "notes": "산스 홈페이지 작업 중. content-pipeline 관심. 글쓰기 의지 있음 ('저도 썼는데')."
+    },
+    {
+      "username": "kiwonam96",
+      "displayName": "Kiwon (남기원)",
+      "role": "creator",
+      "title": "Global Offline Marketing Specialist",
+      "education": "George Washington University — Psychology & Philosophy",
+      "expertise": ["글로벌마케팅", "오프라인마케팅", "심리학", "전략"],
+      "domain": "Marketing / Strategy",
+      "interests": [],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [],
+      "notes": "Discord ID 미확인. 마케팅/전략 전문. EP1 마케팅 배포 채널 활동."
+    },
+    {
+      "username": "tj.kr",
+      "displayName": "TJ (강태진)",
+      "role": "creator",
+      "title": "Media Specialist / Ex-Founder",
+      "expertise": ["미디어제작", "영상편집", "콘텐츠기획", "창업"],
+      "domain": "Contents / Media Production",
+      "interests": [],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [],
+      "notes": "Discord ID 미확인. EP1 제작 워크플로우 채널 활동. 편집 공수 기록."
+    },
+    {
+      "id": "470486268069806090",
+      "username": "jkim9564",
+      "displayName": "Ryan (김지웅)",
+      "role": "creator",
+      "title": "Quantitative Researcher @ AssetPlus (AlphaBridge)",
+      "education": "Ph.D in Physics — Ex-Scientist @ CERN",
+      "expertise": ["퀀트리서치", "데이터분석", "물리학", "CERN", "금융"],
+      "domain": "Research / Data Analysis",
+      "interests": ["AI교육", "하드웨어"],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [
+        {
+          "date": "2026-02-22",
+          "column": "ai-coding-agent-vs-senior",
+          "question": "CERN 시절 vs 퀀트 리서치에서 AI 코딩 도구 체감 차이",
+          "responded": false
+        }
+      ],
+      "notes": "동아일보 제안서 pptx+md 작성. AI 리더십 프로그램. CERN 출신 물리학 박사."
+    },
+    {
+      "username": "jobaideun4740",
+      "displayName": "BH (태봉호)",
+      "role": "creator",
+      "title": "Ph.D. Candidate @ CMS Collaboration (CERN)",
+      "education": "Kyungpook National Univ. — Experimental Physics",
+      "expertise": ["입자물리학", "실험물리", "데이터분석", "CERN CMS"],
+      "domain": "Particle Physics / Data Analysis",
+      "interests": [],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [],
+      "notes": "Discord ID 미확인. CERN 현역 연구자. 데이터 분석 전문."
+    },
+    {
+      "username": "TBD",
+      "displayName": "Sebastian",
+      "role": "creator",
+      "title": "Engineering Manager @ Silicon Valley Tech Company",
+      "education": "Politechnika Łódzka — M.Sc. in Electronics & Telecommunications",
+      "expertise": ["엔지니어링매니지먼트", "전자공학", "통신", "실리콘밸리"],
+      "domain": "Engineering / Management",
+      "interests": [],
+      "reactions": [],
+      "articles": [],
+      "nudgeHistory": [],
+      "notes": "Discord 미가입. 실리콘밸리 EM."
+    }
+  ],
+  "reactionLog": []
+}

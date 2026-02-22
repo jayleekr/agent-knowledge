@@ -1,0 +1,44 @@
+{
+  "last_run": "2026-02-23T04:05:00+09:00",
+  "results": {
+    "script_runnable": { "pass": true, "consecutive_fails": 0 },
+    "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
+    "discord_access": { "pass": true, "consecutive_fails": 0 },
+    "github_access": { "pass": true, "consecutive_fails": 0 },
+    "report_generation": { "pass": true, "consecutive_fails": 0 },
+    "no_regression": { "pass": true, "consecutive_fails": 0 },
+    "git_push_success": { "pass": true, "consecutive_fails": 0 }
+  },
+  "agent_test_results": {
+    "cron_health_check": { 
+      "pass": false, 
+      "consecutive_fails": 1, 
+      "note": "1 error: Weekly Architect Review (announce delivery failed)",
+      "issues_filed": ["#11"]
+    },
+    "mother_self_reporting": { 
+      "pass": true, 
+      "consecutive_fails": 0,
+      "issues_count": 4,
+      "note": "Active self-critique, all issues resolved"
+    },
+    "walter_self_reporting": { 
+      "pass": true, 
+      "consecutive_fails": 0,
+      "issues_count": 3,
+      "note": "Healthy self-reporting"
+    },
+    "herald_issue_reporting": { 
+      "pass": false, 
+      "consecutive_fails": 39, 
+      "note": "Herald NEVER filed issues - critical failure",
+      "escalated": true
+    }
+  },
+  "maturity_score": 80,
+  "level": 2,
+  "consecutive_all_pass": 0,
+  "level2_consecutive_pass": 0,
+  "level1_score": 93,
+  "level2_score": 60
+}

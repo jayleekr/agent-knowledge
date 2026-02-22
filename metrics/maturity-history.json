@@ -262,5 +262,11 @@
     "period": "h03m0",
     "score": 80,
     "level": 2
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h03m30",
+    "score": 80,
+    "level": 2
   }
 ]

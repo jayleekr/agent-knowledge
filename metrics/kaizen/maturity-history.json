@@ -275,5 +275,12 @@
     "score": 80,
     "level": 2,
     "notes": "Cron error detected (Weekly Architect Review), Herald self-critique failure confirmed (39x)"
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h04m30",
+    "score": 76,
+    "level": 2,
+    "notes": "Maturity declining: cron error 2d unresolved, Herald 40x fails"
   }
 ]

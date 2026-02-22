@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-22T23:05:00+09:00",
+  "last_run": "2026-02-22T23:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -10,12 +10,12 @@
     "git_push_success": { "pass": true, "consecutive_fails": 0 }
   },
   "agent_test_results": {
-    "cron_health_check": { "pass": true, "consecutive_fails": 0, "note": "25th consecutive pass. New: Token Usage Tracker" },
+    "cron_health_check": { "pass": false, "consecutive_fails": 1, "note": "Intermittent hang returned after 25-run streak. Works with pipe." },
     "mother_self_reporting": { "pass": true, "consecutive_fails": 0 },
     "walter_self_reporting": { "pass": true, "consecutive_fails": 0 },
-    "herald_issue_reporting": { "pass": false, "consecutive_fails": 29, "note": "Herald never filed issues" }
+    "herald_issue_reporting": { "pass": false, "consecutive_fails": 30, "note": "Herald never filed issues" }
   },
-  "maturity_score": 82,
+  "maturity_score": 80,
   "level": 2,
   "consecutive_all_pass": 0,
   "level2_consecutive_pass": 0

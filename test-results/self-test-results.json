@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-24T04:05:00+09:00",
+  "last_run": "2026-02-24T04:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -13,16 +13,16 @@
     "cron_health_check": { 
       "pass": false, 
       "consecutive_fails": 0,
-      "note": "2 errors detected (#16 OpenClaw Source Update, #17 Weekly Architect Review). Both HIGH priority.",
+      "note": "2 errors persistent (30 min). #16 OpenClaw, #17 Weekly Review. No change from 04:05 run.",
       "issues_filed": ["#16", "#17"],
-      "issue_status": "2 new errors filed",
+      "issue_status": "2 errors stable, awaiting intervention",
       "error_count": 2,
       "error_rate": "8.3% (2/24 crons)",
       "total_crons": 24,
       "recovery_count": 3,
       "recovery_rate": "60% (3/5)",
-      "recovery_persistence": "All 3 recovered crons sustained 12+ hours, crossed midnight into Feb 24",
-      "crisis_level": "LOW - RECOVERING"
+      "recovery_persistence": "Token 17h+, Herald 12h+, Walter 9h+ (all sustained)",
+      "crisis_level": "LOW - STABLE"
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -38,7 +38,7 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 82,
+      "consecutive_fails": 83,
       "escalated": true,
       "issues_count": 0,
       "note": "Herald has NEVER filed a GitHub issue. Self-critique mechanism completely non-functional."
@@ -50,6 +50,6 @@
   "level2_consecutive_pass": 0,
   "level1_score": 88,
   "level2_score": 76,
-  "crisis_level": "LOW - RECOVERING",
-  "stability_note": "84 stable (27 runs). Routine monitoring. 2 new errors (#16, #17), 3 recoveries sustained 12h+."
+  "crisis_level": "LOW - STABLE",
+  "stability_note": "84 stable (28 runs). Monitoring mode. 2 errors persistent 30+ min, no new errors."
 }

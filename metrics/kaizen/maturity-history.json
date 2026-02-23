@@ -429,5 +429,12 @@
     "score": 82,
     "level": 2,
     "notes": "STABLE at 82 (4th run). 6h milestone sustained. Token Tracker 6.5h, Herald Health 1.5h. Next: 20:00 (9h test)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h18m0",
+    "score": 78,
+    "level": 2,
+    "notes": "⚠️ REGRESSION! 82→78 (-4). NEW ERROR: Walter Self-Critique announce delivery. Error count 2→3 (15%)."
   }
 ]

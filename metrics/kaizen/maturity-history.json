@@ -394,5 +394,12 @@
     "score": 75,
     "level": 2,
     "notes": "STABLE at 75 (9th consecutive). Extended stability 305+ min (5h). Token Tracker 4h sustained."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h15m30",
+    "score": 75,
+    "level": 2,
+    "notes": "STABLE at 75 (10th consecutive). Extended stability 335+ min (5.5h). 17:00 run in 85 min (6h test)."
   }
 ]

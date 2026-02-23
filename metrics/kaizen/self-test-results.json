@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-23T17:05:00+09:00",
+  "last_run": "2026-02-23T17:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -13,9 +13,9 @@
     "cron_health_check": { 
       "pass": false, 
       "consecutive_fails": 0,
-      "note": "🎉 6-HOUR MILESTONE! Token Tracker 17:00 run successful. 6h persistence VALIDATED (11:00→17:00).",
+      "note": "6h milestone sustained. Token Tracker 6.5h (17:00 run 35m ago). Herald Health 1.5h sustained.",
       "issues_filed": ["#11", "#12", "#13", "#14"],
-      "issue_status": "2 recovered (Token Tracker 6h, Herald Health 1h), 2 active (OpenClaw, Weekly Review)",
+      "issue_status": "2 recovered (persisting post-6h milestone), 2 active (OpenClaw, Weekly Review)",
       "data_integrity_issue": true,
       "error_count": 2,
       "error_rate": "10% (2/20 crons)",
@@ -23,9 +23,9 @@
       "recovered_crons": 2,
       "recovery_rate": "50%",
       "recovery_persistence_6h": true,
-      "recovery_details": "Token Tracker: 6h VALIDATED (3/3 runs: 11:00✅, 14:00✅, 17:00✅). Herald Health: 1h sustained.",
+      "recovery_details": "Token Tracker: 6.5h sustained (3/3 runs successful). Next: 20:00 (9h test).",
       "crisis_level": "LOW - RECOVERING",
-      "sustained_stability": "6-hour persistence milestone achieved! Exceptional long-term self-healing validated."
+      "sustained_stability": "6h milestone sustained. Both recoveries persisting. Next: 20:00 run (9h test in 2.5h)."
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -41,7 +41,7 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 60,
+      "consecutive_fails": 61,
       "escalated": true,
       "issues_count": 0,
       "note": "Herald has NEVER filed a GitHub issue. Self-critique mechanism completely non-functional."
@@ -54,5 +54,5 @@
   "level1_score": 88,
   "level2_score": 72,
   "crisis_level": "LOW - RECOVERING",
-  "stability_note": "🎉 MILESTONE! 6h persistence validated. Maturity stable at 82 (3 runs). Next: 20:00 run (9h test)."
+  "stability_note": "Maturity stable at 82 (4 runs). 6h milestone sustained. Next: 20:00 run (9h test in 2.5h)."
 }

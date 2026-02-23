@@ -366,5 +366,12 @@
     "score": 75,
     "level": 2,
     "notes": "STABLE at 75. 3 errors stable 170+ min (3 hours). Sustained stability."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h13m30",
+    "score": 75,
+    "level": 2,
+    "notes": "STABLE at 75. 3 errors stable 200+ min (3+ hours). Sustained stability."
   }
 ]

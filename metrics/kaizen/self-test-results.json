@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-23T12:35:00+09:00",
+  "last_run": "2026-02-23T13:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -13,14 +13,14 @@
     "cron_health_check": { 
       "pass": false, 
       "consecutive_fails": 0,
-      "note": "3 errors remain stable for 140+ min: Issues #11, #12, #14",
+      "note": "3 errors remain stable for 170+ min: Issues #11, #12, #14",
       "issues_filed": ["#11", "#12", "#13", "#14"],
       "issue_status": "3 open, 1 resolved",
       "error_count": 3,
       "error_rate": "15% (3/20 crons)",
       "total_crons": 20,
       "crisis_level": "MEDIUM - STABLE",
-      "extended_stability": "No new errors 140+ min, Token Tracker OK, crisis fully stabilized"
+      "sustained_stability": "No new errors 170+ min (3 hours), Token Tracker OK, fully stabilized"
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -34,7 +34,7 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 51,
+      "consecutive_fails": 52,
       "escalated": true
     }
   },
@@ -45,5 +45,5 @@
   "level1_score": 88,
   "level2_score": 63,
   "crisis_level": "MEDIUM - STABLE",
-  "stability_note": "Extended stability at 75, 3 errors stable 140+ min, system healthy"
+  "stability_note": "Sustained at 75, 3 errors stable 170+ min (3 hours), system healthy"
 }

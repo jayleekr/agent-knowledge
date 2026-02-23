@@ -415,5 +415,12 @@
     "score": 82,
     "level": 2,
     "notes": "STABLE at 82 (2nd run). Recoveries persisting. Herald Health 34 min stable. 6h test in 24 min."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h17m0",
+    "score": 82,
+    "level": 2,
+    "notes": "🎉 MILESTONE! 6h persistence VALIDATED. Token Tracker 17:00 run ✅ (11:00→17:00, 3/3 runs successful)."
   }
 ]

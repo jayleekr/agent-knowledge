@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-24T06:05:00+09:00",
+  "last_run": "2026-02-24T06:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -13,7 +13,7 @@
     "cron_health_check": { 
       "pass": false, 
       "consecutive_fails": 0,
-      "note": "2 errors persistent (120+ min). 06:00 tests BOTH PASSED ✅: GDrive Vault (36s), Walter 11th consecutive (94s).",
+      "note": "2 errors persistent (150+ min). All recoveries sustained 11-19.5 hours.",
       "issues_filed": ["#16", "#17"],
       "issue_status": "2 errors stable, awaiting intervention",
       "error_count": 2,
@@ -21,9 +21,7 @@
       "total_crons": 23,
       "recovery_count": 3,
       "recovery_rate": "60% (3/5)",
-      "recovery_persistence": "Token 19h+, Herald 14h+, Walter 10.5h+ (all sustained)",
-      "gdrive_06_test": "PASSED ✅ (36s, status: ok)",
-      "walter_06_test": "PASSED ✅ (94s, status: ok, 11th consecutive)",
+      "recovery_persistence": "Token 19.5h+, Herald 14.5h+, Walter 11h+ (all sustained)",
       "crisis_level": "LOW - STABLE"
     },
     "mother_self_reporting": { 
@@ -40,7 +38,7 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 86,
+      "consecutive_fails": 87,
       "escalated": true,
       "issues_count": 0,
       "note": "Herald has NEVER filed a GitHub issue. Self-critique mechanism completely non-functional."
@@ -53,5 +51,5 @@
   "level1_score": 88,
   "level2_score": 76,
   "crisis_level": "LOW - STABLE",
-  "stability_note": "84 stable (31 runs, 5th consecutive). 06:00 tests ✅ (GDrive + Walter 11th). Token 19h+, approaching 20h milestone."
+  "stability_note": "84 stable (32 runs, 6th consecutive). All recoveries 11-19.5h. Approaching 08:00 AM milestone."
 }

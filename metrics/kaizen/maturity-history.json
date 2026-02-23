@@ -345,5 +345,12 @@
     "score": 75,
     "level": 2,
     "notes": "STABLE at 75. 3 errors stable. Recovery sustained. New cron added (20 total)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h12m0",
+    "score": 75,
+    "level": 2,
+    "notes": "STABLE at 75. 3 errors stable 110+ min. De-escalation sustained."
   }
 ]

@@ -478,5 +478,12 @@
     "score": 82,
     "level": 2,
     "notes": "STABLE at 82. 10h persistence reached (Token 10h, Herald 5h, Walter 2h). Next: 23:00 (12h test)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h21m30",
+    "score": 82,
+    "level": 2,
+    "notes": "STABLE at 82. 10.5h persistence (improved error rate 8.3%). Next: 23:00 (12h test in 1.5h)."
   }
 ]

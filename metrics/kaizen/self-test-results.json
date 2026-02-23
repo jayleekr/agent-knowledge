@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-23T09:11:00+09:00",
+  "last_run": "2026-02-23T10:15:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,14 +12,15 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false, 
-      "consecutive_fails": 2,
-      "note": "3 errors: Issue #11 (investigated), Issue #12 (1 comment), Issue #13 (NEW)",
-      "issues_filed": ["#11", "#12", "#13"],
+      "consecutive_fails": 3,
+      "note": "4 errors: Issue #11, #12, #13, #14 (NEW - Herald Health Check)",
+      "issues_filed": ["#11", "#12", "#13", "#14"],
       "issue_status": "all open",
       "new_error": true,
-      "error_count": 3,
-      "error_rate": "15.8% (3/19 crons)",
-      "systemic_crisis": "CONFIRMED - all 3 are announce delivery failures, 2 explicitly WhatsApp channel errors"
+      "error_count": 4,
+      "error_rate": "21.1% (4/19 crons)",
+      "crisis_level": "CATASTROPHIC",
+      "catastrophic_escalation": "4 errors in 5 hours, accelerating pattern, WhatsApp channel total failure"
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -36,18 +37,19 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 45, 
-      "note": "Herald NEVER filed issues - 45 consecutive failures",
+      "consecutive_fails": 46, 
+      "note": "Herald NEVER filed issues - 46 consecutive failures",
       "escalated": true
     }
   },
-  "maturity_score": 75,
+  "maturity_score": 72,
   "level": 2,
   "consecutive_all_pass": 0,
   "level2_consecutive_pass": 0,
-  "level1_score": 88,
-  "level2_score": 61,
-  "crisis_level": "CRITICAL",
-  "decline_note": "Maturity critically declined 80→78→75 over 4 hours due to systemic announce delivery crisis",
-  "systemic_pattern": "3 announce delivery failures (15.8% cron failure rate) - WhatsApp channel misconfiguration confirmed"
+  "level1_score": 85,
+  "level2_score": 57,
+  "crisis_level": "CATASTROPHIC - EMERGENCY",
+  "decline_trajectory": "80→78→75→72 in 5 hours (8-point freefall)",
+  "catastrophic_pattern": "4 announce delivery failures (21.1%), 3 identical WhatsApp errors, accelerating ~75min between errors",
+  "emergency_action_required": "IMMEDIATE Jay intervention to prevent total system collapse"
 }

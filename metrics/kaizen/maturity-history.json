@@ -317,5 +317,12 @@
     "score": 75,
     "level": 2,
     "notes": "CRITICAL DECLINE 78→75. Issue #13 filed. SYSTEMIC CRISIS: 3 announce delivery errors (15.8%)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h10m0",
+    "score": 72,
+    "level": 2,
+    "notes": "CATASTROPHIC 75→72. Issue #14 (Herald). EMERGENCY: 4 errors (21.1%), WhatsApp total failure, 8pt decline in 5h."
   }
 ]

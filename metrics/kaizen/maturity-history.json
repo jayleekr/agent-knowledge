@@ -310,5 +310,12 @@
     "score": 78,
     "level": 2,
     "notes": "Declined 80→78. NEW cron error #12 (OpenClaw Source Update). Pattern: 2 announce delivery failures."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h09m0",
+    "score": 75,
+    "level": 2,
+    "notes": "CRITICAL DECLINE 78→75. Issue #13 filed. SYSTEMIC CRISIS: 3 announce delivery errors (15.8%)."
   }
 ]

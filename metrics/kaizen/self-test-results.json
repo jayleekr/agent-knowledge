@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-23T07:57:00+09:00",
+  "last_run": "2026-02-23T09:11:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,12 +12,14 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false, 
-      "consecutive_fails": 1,
-      "note": "2 errors: Issue #11 (investigated), Issue #12 (NEW - OpenClaw Source Update)",
-      "issues_filed": ["#11", "#12"],
-      "issue_status": "both open",
+      "consecutive_fails": 2,
+      "note": "3 errors: Issue #11 (investigated), Issue #12 (1 comment), Issue #13 (NEW)",
+      "issues_filed": ["#11", "#12", "#13"],
+      "issue_status": "all open",
       "new_error": true,
-      "error_pattern": "Both are announce delivery failures - systemic issue suspected"
+      "error_count": 3,
+      "error_rate": "15.8% (3/19 crons)",
+      "systemic_crisis": "CONFIRMED - all 3 are announce delivery failures, 2 explicitly WhatsApp channel errors"
     },
     "mother_self_reporting": { 
       "pass": true, 
@@ -34,17 +36,18 @@
     },
     "herald_issue_reporting": { 
       "pass": false, 
-      "consecutive_fails": 44, 
-      "note": "Herald NEVER filed issues - 44 consecutive failures",
+      "consecutive_fails": 45, 
+      "note": "Herald NEVER filed issues - 45 consecutive failures",
       "escalated": true
     }
   },
-  "maturity_score": 78,
+  "maturity_score": 75,
   "level": 2,
   "consecutive_all_pass": 0,
   "level2_consecutive_pass": 0,
-  "level1_score": 90,
-  "level2_score": 63,
-  "decline_note": "Maturity declined 80→78 due to new cron error (Issue #12)",
-  "critical_pattern": "2 announce delivery failures suggest systemic infrastructure issue"
+  "level1_score": 88,
+  "level2_score": 61,
+  "crisis_level": "CRITICAL",
+  "decline_note": "Maturity critically declined 80→78→75 over 4 hours due to systemic announce delivery crisis",
+  "systemic_pattern": "3 announce delivery failures (15.8% cron failure rate) - WhatsApp channel misconfiguration confirmed"
 }

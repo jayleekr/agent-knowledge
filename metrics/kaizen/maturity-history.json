@@ -471,5 +471,12 @@
     "score": 82,
     "level": 2,
     "notes": "STABLE at 82. 9h milestone sustained. All 3 recoveries holding. Next: 23:00 (12h test in 2.5h)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h21m0",
+    "score": 82,
+    "level": 2,
+    "notes": "STABLE at 82. 10h persistence reached (Token 10h, Herald 5h, Walter 2h). Next: 23:00 (12h test)."
   }
 ]

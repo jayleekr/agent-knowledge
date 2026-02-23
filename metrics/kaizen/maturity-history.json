@@ -401,5 +401,12 @@
     "score": 75,
     "level": 2,
     "notes": "STABLE at 75 (10th consecutive). Extended stability 335+ min (5.5h). 17:00 run in 85 min (6h test)."
+  },
+  {
+    "date": "2026-02-23",
+    "period": "h16m0",
+    "score": 82,
+    "level": 2,
+    "notes": "🎉 BREAKTHROUGH! Second recovery (Herald Health 16:01). Maturity 75→82 (+7). Error rate 10% (2/20)."
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-25T09:13:00+09:00",
+  "last_run": "2026-02-25T09:35:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -13,13 +13,13 @@
     "cron_health_check": { 
       "pass": false,
       "consecutive_fails": 1,
-      "note": "Run #82 (h09m0). ⚠️ NEW ERROR: CA Morning announce delivery failed (Issue #21). Error rate 4.2%→8.3% (1→2 errors). Stability BROKEN (reset to 0). 09:00 wave: 3/4 passed. Maturity 95→93 (-2). Herald 42h test in 47min.",
+      "note": "Run #83 (h09m30). Pre-Herald test monitoring. T-25min to Herald 42h test (10:00). Error count stable at 2 (8.3%). No new errors since 09:10 regression. Herald cron: ok status ✅. 90% confidence for success. Triple milestone completion imminent.",
       "error_count": 2,
       "error_rate": "8.3% (2/24 crons)",
       "total_crons": 24,
-      "recovery_persistence": "Milestone tests still passing. Herald 42h test pending (10:00).",
-      "milestone_status": "08:00 milestone 100% success maintained. Herald 42h test in 47min. New error pattern concern.",
-      "level3_status": "25th consecutive L3 run",
+      "recovery_persistence": "08:00 milestone tests all passed. Herald 42h test in 25min.",
+      "milestone_status": "T-25min to Herald 42h test. Pre-validated: ok status. Risk: announce delivery pattern.",
+      "level3_status": "26th consecutive L3 run",
       "crisis_level": "GOOD"
     }
   },

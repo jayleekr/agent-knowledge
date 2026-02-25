@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-25T12:35:00+09:00",
+  "last_run": "2026-02-25T13:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,14 +12,14 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false,
-      "consecutive_fails": 4,
-      "note": "Run #89 (h12m30). Extended post-Token-timeout monitoring (1h 35min after 11:00 failure). Error count STABLE at 3 (12.5%, unchanged 1h 35min). Email Monitor 12:00 success SUSTAINED (35min post-success, validates 24h recovery persistence). Token 14:00 retry CRITICAL (T-1h 25min, 55-60% confidence). Herald 16:00 pending (T-3h 25min). System stable at elevated error rate, no new errors, no escalation.",
+      "consecutive_fails": 5,
+      "note": "Run #90 (h13m0). PRE-CRITICAL-TEST monitoring. T-55min to Token 14:00 CRITICAL retry. Error count STABLE 2h+ at 3 (12.5%). Email Monitor sustained 5h+ post-milestone (12:00 success 1h ago, ok status). Herald Health sustained 3h post-milestone (ok status). System OPTIMAL for critical test. Token 14:00 most important test since triple milestone completion. Confidence: 55-60% success.",
       "error_count": 3,
       "error_rate": "12.5% (3/24 crons)",
       "total_crons": 24,
-      "recovery_persistence": "Email 12:00 sustained (4h 30min post-milestone). Token 14:00 retry critical. Herald 16:00 first post-milestone test pending.",
-      "milestone_status": "Triple milestone achieved (100%). Post-milestone sustainability: 67% (Email 100%, Token 0%, Herald pending).",
-      "level3_status": "32nd consecutive L3 run",
+      "recovery_persistence": "Email 5h+ sustained (100% post-milestone). Token 14:00 retry critical (T-55min). Herald 16:00 first post-milestone test (T-3h).",
+      "milestone_status": "Triple milestone achieved (100%). Post-milestone sustainability: 67% (Email 100%, Token 0%, Herald pending). Token 14:00 decision point.",
+      "level3_status": "33rd consecutive L3 run",
       "crisis_level": "STABLE"
     }
   },

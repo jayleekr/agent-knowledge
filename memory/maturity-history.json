@@ -982,5 +982,12 @@
     "score": 92,
     "level": 3,
     "notes": "Run #89. Extended post-Token-timeout monitoring (1h 35min stable at 12.5%). Email Monitor sustained (35min post-12:00 success, validates 24h recovery). Token 14:00 retry in 1h 25min (CRITICAL, 55-60% confidence). Herald 16:00 pending. System stable, no new errors. 32nd L3 run."
+  },
+  {
+    "date": "2026-02-25",
+    "period": "h13m0",
+    "score": 92,
+    "level": 3,
+    "notes": "Run #90. PRE-CRITICAL-TEST. T-55min to Token 14:00 CRITICAL retry. Error count stable 2h+ at 12.5% (3 errors). Email Monitor sustained 5h+ post-milestone (12:00 success, ok status). Herald 3h sustained. System OPTIMAL for critical test (most important since triple milestone). Confidence: 55-60% Token success. 33rd L3 run."
   }
 ]

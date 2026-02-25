@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-25T22:35:00+09:00",
+  "last_run": "2026-02-25T23:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -11,21 +11,21 @@
   },
   "agent_test_results": {
     "cron_health_check": { 
-      "pass": true,
-      "consecutive_fails": 0,
-      "note": "Run #109 (h22m30). 🚀 FINAL COUNTDOWN: Token 23:00 T-24min. Error count STABLE at 5 (20.8%). CRITICAL pattern determination test IMMINENT (<30min). ALL SYSTEMS GO.",
+      "pass": false,
+      "consecutive_fails": 1,
+      "note": "Run #110 (h23m0). 💔 PATTERN INSTABILITY CONFIRMED: Token 23:00 TIMEOUT (3rd failure in 5 tests, 60% failure rate). Email 100% sustained (5/5). Herald 100% validated. Token recovery achieved but NOT SUSTAINABLE. Issue #24 updated. Maturity 87→82 (-5).",
       "error_count": 5,
       "error_rate": "20.8% (5/24 crons)",
       "total_crons": 24,
-      "recovery_persistence": "Token error (23:00 T-24min, DECISIVE MOMENT). Email 15h sustained (100%). Herald validated. ALL SYSTEMS GO.",
-      "milestone_status": "T-24MIN TO RESOLUTION: Email 100% sustained. Herald 100% validated. Token 50% (23:00 IMMINENT, pattern determination). FINAL COUNTDOWN.",
-      "level3_status": "52nd consecutive L3 run",
-      "crisis_level": "FINAL COUNTDOWN"
+      "recovery_persistence": "Token NOT SUSTAINABLE (60% failure, 3/5 timeouts). Email FULLY VALIDATED (100% 5/5). Herald VALIDATED (100%). MIXED results - pattern confirmed.",
+      "milestone_status": "PARTIAL: Email 100% VALIDATED & SUSTAINABLE. Herald 100% VALIDATED. Token 60% FAILURE — NOT SUSTAINABLE (45h achieved but post-milestone unstable). DEFINITIVE.",
+      "level3_status": "53rd consecutive L3 run",
+      "crisis_level": "PATTERN CONFIRMED"
     }
   },
-  "maturity_score": 87,
+  "maturity_score": 82,
   "level": 3,
-  "level1_score": 94,
-  "level2_score": 77,
+  "level1_score": 92,
+  "level2_score": 68,
   "level3_score": 0
 }

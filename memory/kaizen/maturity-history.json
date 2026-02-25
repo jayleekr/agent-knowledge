@@ -977,4 +977,12 @@
     "level": 3,
     "notes": "Run #85. Post-triple-milestone monitoring (34min after completion). Error count stable at 2 (8.3%). All milestone crons: ok status ✅. Token 11:00 in 24min. No new errors. System stable post-achievement. 28th L3 run."
   }
+,
+  {
+    "date": "2026-02-25",
+    "period": "h11m0",
+    "score": 92,
+    "level": 3,
+    "notes": "Run #86. ⚠️ MAJOR REGRESSION: Token Usage Tracker timeout (Issue #22). Error rate 8.3%→12.5% (2→3, +50%). Token 11:00 FAILED ❌ (timeout 180s after 08:01 SUCCESS). Maturity 95→92 (-3). L2: 92→86 (-6). Agent health 91.7%→87.5%. CRITICAL: Triple milestone achievement NOT SUSTAINED - first post-milestone cycle failed. Different error type (timeout vs announce delivery). 29th L3 run. Two infrastructure issues: announce delivery + execution timeout."
+  }
 ]

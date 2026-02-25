@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-25T10:35:00+09:00",
+  "last_run": "2026-02-25T11:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,20 +12,20 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false,
-      "consecutive_fails": 3,
-      "note": "Run #85 (h10m30). Post-triple-milestone monitoring (34min after Herald completion). Error count stable at 2 (8.3%). All milestone crons: ok status ✅. Token 11:00 in 24min. Triple milestone achievement validated.",
-      "error_count": 2,
-      "error_rate": "8.3% (2/24 crons)",
+      "consecutive_fails": 1,
+      "note": "Run #86 (h11m0). ⚠️ NEW ERROR: Token Usage Tracker timeout (Issue #22). Error rate 8.3%→12.5% (2→3, +50%). Token 11:00 FAILED ❌ (timeout 180s). First cycle after 08:01 milestone. Maturity 95→92 (-3). L2: 92→86 (-6). CRITICAL: Triple milestone achievement NOT SUSTAINED. Different error type (timeout vs announce delivery).",
+      "error_count": 3,
+      "error_rate": "12.5% (3/24 crons)",
       "total_crons": 24,
-      "recovery_persistence": "All milestone crons healthy post-completion. Token, Email, Herald all ok status.",
-      "milestone_status": "Triple milestone completed ✅✅✅. Post-achievement monitoring stable.",
-      "level3_status": "28th consecutive L3 run",
-      "crisis_level": "EXCELLENT"
+      "recovery_persistence": "Token milestone 08:01 ✅ → 11:00 ❌ TIMEOUT. Could not sustain for 3 hours.",
+      "milestone_status": "Triple milestone achieved but NOT SUSTAINED. Token failed first post-milestone cycle.",
+      "level3_status": "29th consecutive L3 run",
+      "crisis_level": "CONCERNING"
     }
   },
-  "maturity_score": 95,
+  "maturity_score": 92,
   "level": 3,
   "level1_score": 95,
-  "level2_score": 92,
+  "level2_score": 86,
   "level3_score": 0
 }

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-02-25T19:35:00+09:00",
+  "last_run": "2026-02-25T20:05:00+09:00",
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -11,21 +11,21 @@
   },
   "agent_test_results": {
     "cron_health_check": { 
-      "pass": true,
-      "consecutive_fails": 0,
-      "note": "Run #103 (h19m30). 🚀 FINAL PRE-FLIGHT: Token 20:00 T-24min. Error count STABLE at 3 (12.5%). All milestone crons ok ✅. Token 5h+ sustained (3h 35min post-17:00, 2 consecutive). System READY for critical test. Confidence HIGH (90%+).",
-      "error_count": 3,
-      "error_rate": "12.5% (3/24 crons)",
+      "pass": false,
+      "consecutive_fails": 1,
+      "note": "Run #104 (h20m0). 💥 CRITICAL SETBACK: Token 20:00 TIMEOUT (expected 3rd consecutive, recovery streak BROKEN). Mother Evening Report auth error (NEW). Error count 3→5 (+67%). Error rate 12.5%→20.8%. Maturity 93→87 (-6, LARGEST DROP). Token pattern: 50% failure (2/4 post-milestone), UNSTABLE. Issues #24 & #25 filed.",
+      "error_count": 5,
+      "error_rate": "20.8% (5/24 crons)",
       "total_crons": 24,
-      "recovery_persistence": "Token 5h+ sustained (20:00 T-24min, potential 3rd consecutive). Email 12h sustained (100% 5/5). Herald validated. All systems GO.",
-      "milestone_status": "Triple milestone 100% sustained. Token 20:00 IMMINENT (T-24min, CRITICAL: potential 3rd consecutive, would validate 6h+ recovery). Pre-flight COMPLETE.",
-      "level3_status": "46th consecutive L3 run",
-      "crisis_level": "READY"
+      "recovery_persistence": "Token BROKEN (50% 2/4, timeout at 20:00, pattern UNSTABLE). Email 12h+ sustained (100% 5/5). Herald validated. MIXED results.",
+      "milestone_status": "PARTIAL: Email 100% sustained. Herald 100% validated. Token BROKEN (50% failure rate, recovery streak ended, pattern UNSTABLE). MAJOR SETBACK.",
+      "level3_status": "47th consecutive L3 run",
+      "crisis_level": "CRITICAL SETBACK"
     }
   },
-  "maturity_score": 93,
+  "maturity_score": 87,
   "level": 3,
-  "level1_score": 96,
-  "level2_score": 87,
+  "level1_score": 94,
+  "level2_score": 77,
   "level3_score": 0
 }

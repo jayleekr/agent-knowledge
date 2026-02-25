@@ -1080,5 +1080,12 @@
     "score": 93,
     "level": 3,
     "notes": "Run #103. 🚀 FINAL PRE-FLIGHT: Token 20:00 T-24min. Error count STABLE at 3 (12.5%). Token 5h+ sustained (2 consecutive, potential 3rd imminent). All milestone crons READY ✅. Pre-flight COMPLETE. Maturity 93/100. 46th L3 run."
+  },
+  {
+    "date": "2026-02-25",
+    "period": "h20m0",
+    "score": 87,
+    "level": 3,
+    "notes": "Run #104. 💥 CRITICAL SETBACK: Token 20:00 TIMEOUT (expected 3rd consecutive, recovery streak BROKEN). Mother auth error (NEW, Issue #25). Error count 3→5 (+67%). Maturity 93→87 (-6, LARGEST DROP). Token pattern: 50% failure (2/4), UNSTABLE. Issues #24 & #25 filed. 47th L3 run."
   }
 ]

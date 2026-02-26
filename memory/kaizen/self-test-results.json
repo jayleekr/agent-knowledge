@@ -1,5 +1,6 @@
 {
-  "last_run": "2026-02-25T11:35:00+09:00",
+  "last_run": "2026-02-26T13:05:00+09:00",
+  "run_number": 149,
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -12,20 +13,77 @@
   "agent_test_results": {
     "cron_health_check": { 
       "pass": false,
-      "consecutive_fails": 2,
-      "note": "Run #87 (h11m30). Post-Token-timeout monitoring (35min after 11:00 failure). Error count stable at 3 (12.5%). No new errors. Email 12:00 in 25min. Token 14:00 retry in 2h 25min (CRITICAL). System stable post-timeout, no escalation.",
-      "error_count": 3,
-      "error_rate": "12.5% (3/24 crons)",
-      "total_crons": 24,
-      "recovery_persistence": "Token 11:00 timeout. Email 12:00 approaching. Token 14:00 retry critical.",
-      "milestone_status": "Triple milestone achieved but Token failed first post-milestone cycle. Email 12:00 will validate other crons.",
-      "level3_status": "30th consecutive L3 run",
-      "crisis_level": "CONCERNING"
+      "consecutive_fails": 5,
+      "note": "Run #149 (h13m0). 6 cron errors detected (22.2%). Same errors as run #148. Filed issues #45-50 (duplicates of #39-44). Need duplicate detection.",
+      "error_count": 6,
+      "error_rate": "22.2% (6/27 crons)",
+      "total_crons": 27,
+      "errors": [
+        {
+          "cron_id": "9a81cc10-5a70-469d-b27f-d19de998d49a",
+          "name": "Agent Harness Version",
+          "agent": "main",
+          "error": "announce delivery failed",
+          "issue": "#45"
+        },
+        {
+          "cron_id": "ac07126e-9474-4dc1-9d4f-282fedc64406",
+          "name": "Email Monitor",
+          "agent": "walter",
+          "error": "announce delivery failed",
+          "issue": "#46"
+        },
+        {
+          "cron_id": "aef18916-9426-47cc-a17d-222997b55daa",
+          "name": "CA Retro",
+          "agent": "walter",
+          "error": "script timeout",
+          "issue": "#47"
+        },
+        {
+          "cron_id": "a34e214c-b142-42e8-ad8d-da10fe671362",
+          "name": "Mother Evening Report",
+          "agent": "main",
+          "error": "API auth cooldown",
+          "issue": "#48"
+        },
+        {
+          "cron_id": "5a3f126b-5888-4323-a4cf-2d70e4119f63",
+          "name": "Vault Git Backup",
+          "agent": "walter",
+          "error": "API auth cooldown",
+          "issue": "#49"
+        },
+        {
+          "cron_id": "b65b9928-2ab7-4252-b636-507031d371b8",
+          "name": "CA Morning",
+          "agent": "walter",
+          "error": "skill not registered",
+          "issue": "#50"
+        }
+      ]
+    },
+    "walter_self_reporting": {
+      "pass": true,
+      "consecutive_fails": 0,
+      "note": "Walter has 10 issues filed. Self-reporting working."
+    },
+    "herald_self_reporting": {
+      "pass": false,
+      "consecutive_fails": 5,
+      "note": "🔴 CRITICAL: Herald has filed ZERO self-critical issues EVER. Self-reporting NOT working. Systemic capability gap."
+    },
+    "mother_self_reporting": {
+      "pass": true,
+      "consecutive_fails": 0,
+      "note": "Mother has 8 issues filed. Self-criticism working."
     }
   },
-  "maturity_score": 92,
+  "maturity_score": 86,
   "level": 3,
-  "level1_score": 95,
-  "level2_score": 86,
-  "level3_score": 0
+  "level1_score": 92,
+  "level2_score": 75,
+  "level3_score": 15,
+  "self_test_streak": 149,
+  "level3_run_count": 78
 }

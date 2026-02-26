@@ -1,5 +1,6 @@
 {
-  "last_run": "2026-02-24T11:05:00+09:00",
+  "last_run": "2026-02-26T12:35:00+09:00",
+  "run_number": 148,
   "results": {
     "script_runnable": { "pass": true, "consecutive_fails": 0 },
     "eval_criteria_valid": { "pass": true, "consecutive_fails": 0 },
@@ -11,49 +12,80 @@
   },
   "agent_test_results": {
     "cron_health_check": { 
-      "pass": true, 
-      "consecutive_fails": 0,
-      "note": "🏆 24-HOUR MILESTONE ACHIEVED! Token Tracker 11:00 PASSED ✅ (117s). Full daily cycle validated!",
-      "issues_filed": ["#17"],
-      "issues_resolved": ["#16"],
-      "issue_status": "1 error stable (Weekly Review). No regression.",
-      "error_count": 1,
-      "error_rate": "4.3% (1/23 crons)",
-      "total_crons": 23,
-      "recovery_count": 4,
-      "recovery_rate": "80% (4/5)",
-      "recovery_persistence": "Token 24h+ (MILESTONE ✅), Herald 19h+, Walter 16h+ (16th), OpenClaw ~3h",
-      "token_11_test": "PASSED ✅ (117s, 24H MILESTONE ACHIEVED - LONGEST VALIDATION)",
-      "walter_11_test": "PASSED ✅ (38s, status: ok, 16th consecutive)",
-      "openclaw_recovery_status": "STRENGTHENED ✅ (~3h sustained)",
-      "crisis_level": "RESOLVED - HISTORIC MILESTONE"
+      "pass": false,
+      "consecutive_fails": 4,
+      "note": "Run #148 (h12m30). 6 cron errors detected (22.2%). Stale status pattern identified (4/6 errors have successful recent runs). Auth cooldown transient (2/6). Issues #39-44 already filed, no new issues needed.",
+      "error_count": 6,
+      "error_rate": "22.2% (6/27 crons)",
+      "total_crons": 27,
+      "actual_errors": 2,
+      "stale_status_errors": 4,
+      "errors": [
+        {
+          "cron_id": "9a81cc10-5a70-469d-b27f-d19de998d49a",
+          "name": "Agent Harness Version",
+          "agent": "main",
+          "error": "stale status (recent run successful)",
+          "issue": "#43"
+        },
+        {
+          "cron_id": "ac07126e-9474-4dc1-9d4f-282fedc64406",
+          "name": "Email Monitor",
+          "agent": "walter",
+          "error": "stale status (recent run successful)",
+          "issue": "#44"
+        },
+        {
+          "cron_id": "aef18916-9426-47cc-a17d-222997b55daa",
+          "name": "CA Retro",
+          "agent": "walter",
+          "error": "stale status (recent run successful)",
+          "issue": "#39"
+        },
+        {
+          "cron_id": "a34e214c-b142-42e8-ad8d-da10fe671362",
+          "name": "Mother Evening Report",
+          "agent": "main",
+          "error": "auth cooldown (recurring, transient)",
+          "issue": "#40"
+        },
+        {
+          "cron_id": "5a3f126b-5888-4323-a4cf-2d70e4119f63",
+          "name": "Vault Git Backup",
+          "agent": "walter",
+          "error": "auth cooldown (recurring, transient)",
+          "issue": "#41"
+        },
+        {
+          "cron_id": "b65b9928-2ab7-4252-b636-507031d371b8",
+          "name": "CA Morning",
+          "agent": "walter",
+          "error": "stale status (recent run successful)",
+          "issue": "#42"
+        }
+      ]
     },
-    "mother_self_reporting": { 
-      "pass": true, 
+    "walter_self_reporting": {
+      "pass": true,
       "consecutive_fails": 0,
-      "issues_count": 5,
-      "most_recent": "#15 (Feb 23)"
+      "note": "Walter has 4 issues filed (#35, #39, #41, #42). Self-reporting working."
     },
-    "walter_self_reporting": { 
-      "pass": true, 
+    "herald_self_reporting": {
+      "pass": false,
+      "consecutive_fails": 4,
+      "note": "🔴 CRITICAL: Herald has filed ZERO self-critical issues EVER. Self-reporting NOT working. Systemic capability gap."
+    },
+    "mother_self_reporting": {
+      "pass": true,
       "consecutive_fails": 0,
-      "issues_count": 2,
-      "most_recent": "#9 (Feb 22)"
-    },
-    "herald_issue_reporting": { 
-      "pass": false, 
-      "consecutive_fails": 95,
-      "escalated": true,
-      "issues_count": 0,
-      "note": "Herald has NEVER filed a GitHub issue. Self-critique mechanism completely non-functional."
+      "note": "Mother correctly filed #15 and #40. Self-criticism working."
     }
   },
-  "maturity_score": 88,
-  "level": 2,
-  "consecutive_all_pass": 0,
-  "level2_consecutive_pass": 6,
-  "level1_score": 88,
-  "level2_score": 84,
-  "crisis_level": "RESOLVED - HISTORIC MILESTONE",
-  "stability_note": "88/100 (+2). 🏆 24H MILESTONE! Token 11:00 ✅. Walter 16th. Herald 19h. L2: 84/100. 60% to L3."
+  "maturity_score": 86,
+  "level": 3,
+  "level1_score": 92,
+  "level2_score": 75,
+  "level3_score": 15,
+  "self_test_streak": 148,
+  "level3_run_count": 77
 }

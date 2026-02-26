@@ -1,26 +1,37 @@
-## Token Usage - 2026-02-22 23:03
+## Token Usage - 2026-02-26 11:00:00 KST
 ### 계정별 합산
-- Personal: 952,379 tokens (~$29.17)
+- Personal: 1273056 tokens (~$27.91)
 - Sonatus: 0 tokens (~$0.00)
-- TOTAL: 952,379 tokens (~$29.17)
+- TOTAL: 1273056 tokens (~$27.91)
+
 ### 세션 상세 (중복 제거, tokens 내림차순)
 | 세션 key | Model | Tokens | Ctx% | ~Cost |
-|----------|-------|--------|------|-------|
-| agent:main:cron:8a39c1f9-7e60-4814-8e7b-efcc37a66196 | sonnet-4-20250514 | 137,523 | 69% | $1.38 |
-| agent:main:cron:d9cad74b-027a-4e3d-9c9b-b23d47992dc3 | sonnet-4-5 | 119,735 | 60% | $1.20 |
-| agent:main:cron:8f9e2c16-a695-461a-9335-4e825130f868 | opus-4-6 | 115,226 | 58% | $5.76 |
-| agent:main:main | opus-4-6 | 88,587 | 44% | $4.43 |
-| agent:main:cron:6067844b-a68e-4634-a21a-d8615c246945:run:84bc077e-151e-42e0-ad14-2db0c1ea8f66 | sonnet-4-20250514 | 73,833 | 37% | $0.74 |
-| agent:main:discord:channel:1468160229202989161 | opus-4-6 | 73,242 | 37% | $3.66 |
-| agent:main:cron:d9cad74b-027a-4e3d-9c9b-b23d47992dc3:run:a8835b16-7cf2-498c-92d1-a11adcc97da8 | opus-4-6 | 57,841 | 29% | $2.89 |
-| agent:main:cron:d7fcdf3a-24c2-45f9-8948-aa28a49086c5 | sonnet-4-5 | 57,531 | 29% | $0.58 |
-| agent:main:discord:channel:jaylee_59200 | opus-4-6 | 49,224 | 25% | $2.46 |
-| agent:main:cron:6067844b-a68e-4634-a21a-d8615c246945 | sonnet-4-20250514 | 45,331 | 23% | $0.45 |
-| agent:main:discord:channel:1471863670718857247 | opus-4-6 | 33,775 | 17% | $1.69 |
-| agent:main:subagent:b1caa1c4-545a-4aa5-bfb1-549efa156f75 | opus-4-6 | 27,983 | 14% | $1.40 |
-| agent:main:cron:28cc91d6-efdc-4e33-b1e2-d803aa480ae0 | opus-4-6 | 25,764 | 13% | $1.29 |
-| agent:main:cron:97969b9e-f9d0-43a3-a551-554e12f056dc | sonnet-4-20250514 | 20,068 | 10% | $0.20 |
-| agent:main:cron:cfb419c6-2fc5-40b4-aa8b-c296443cab48 | sonnet-4-5 | 13,394 | 7% | $0.13 |
-| agent:main:cron:a34e214c-b142-42e8-ad8d-da10fe671362 | sonnet-4-5 | 13,322 | 7% | $0.13 |
+|----------|-------|--------|------|--------|
+| 475da887-f017-42d6-b780-046f96c9c4df | sonnet-4-5 | 179625 | 89.8% | $1.80 |
+| 8af8939f-f9b9-492b-bbd0-e82b0cc5294a | sonnet-4-5 | 165723 | 82.9% | $1.66 |
+| 9bdd69f0-29f0-4e81-b1b6-a67ea817539e | sonnet-4-5 | 165723 | 82.9% | $1.66 |
+| b8a909be-d504-4eac-abf0-6f3a6805d0e0 | sonnet-4-20250514 | 153469 | 76.7% | $1.53 |
+| 7a030fb6-a7e1-4ec4-9236-01d6e717d91d | opus-4-6 | 136964 | 68.5% | $6.85 |
+| ba81bdd5-812d-42da-a7c4-80fa78b13a41 | opus-4-6 | 90194 | 45.1% | $4.51 |
+| 867078d3-dc61-419b-8d73-626f14e1c13b | sonnet-4-20250514 | 85321 | 42.7% | $0.85 |
+| 1aefc330-2ed1-4527-ad2d-dd83e4d59613 | opus-4-6 | 43656 | 21.8% | $2.18 |
+| 6c7f31ba-73a2-4caf-bec0-cfc52a9d1d22 | opus-4-6 | 28603 | 14.3% | $1.43 |
+| 324b97ae-191e-4015-8060-952254f26ec0 | sonnet-4-20250514 | 23999 | 12.0% | $0.24 |
+| 13eeb6c9-ddab-4c4b-a28f-94ab37087355 | sonnet-4-5 | 20869 | 10.4% | $0.21 |
+| 558d33c8-7709-4457-b64d-d586cbb96701 | sonnet-4-20250514 | 20394 | 10.2% | $0.20 |
+| 02d7f0dd-96fc-4eaf-ba75-3354db3859e6 | sonnet-4-20250514 | 20394 | 10.2% | $0.20 |
+| c2224624-a19b-48ec-a645-78f73e6ad047 | sonnet-4-20250514 | 20311 | 10.2% | $0.20 |
+| 04efb06b-42cb-44f6-90d9-fea0d220c0c4 | opus-4-6 | 16219 | 8.1% | $0.81 |
+| 31e22b94-f731-4ebe-a9a9-f6e9389bc937 | sonnet-4-5 | 13849 | 6.9% | $0.14 |
+| f9349158-75f9-49fb-9253-76f65480d966 | opus-4-6 | 13677 | 6.8% | $0.68 |
+| f648a287-0d32-4424-9e5e-a02b939ed508 | opus-4-6 | 13201 | 6.6% | $0.66 |
+| b20ffede-5804-49f9-9c93-a8610ab01623 | opus-4-6 | 12755 | 6.4% | $0.64 |
+| 8f9f2325-9e45-4ea6-ab0f-59c6f5a84517 | sonnet-4-5 | 12441 | 6.2% | $0.12 |
+| edf4af4c-f870-4d30-8944-f526c3ee3a4a | opus-4-6 | 12255 | 6.1% | $0.61 |
+| ec8fe64c-0318-4185-8fc3-b62cdb04027f | opus-4-6 | 11923 | 6.0% | $0.59 |
+| ff26ae88-2e92-4525-a757-f94b52caf9ef | sonnet-4-5 | 11491 | 5.7% | $0.11 |
+
 ### 참고
 - $100/day까지 OK
+- 24시간 사용량: $27.91 (28% of daily limit)
+- 주요 소비: sonnet-4-5 크론 작업들 (44.7% of total tokens)

@@ -1,50 +1,28 @@
 ---
 name: content-nudge
-description: "HypeProof 칼럼 포스팅 후 크리에이터 맞춤 맨션 질문 시스템. Mother가 칼럼 올린 뒤 크리에이터 DB 기반으로 전공 매칭된 2~3명에게 맨션+맞춤질문. 리액션/답변 추적하여 DB 업데이트."
+description: "HypeProof 칼럼 게시 후 크리에이터 참여 유도 시스템. 칼럼에 전문성 매칭 질문으로 크리에이터 참여 촉진. column-pipeline(칼럼 제작 넛지)과는 별도 역할."
+updated: 2026-02-26
 ---
 
 # Content Nudge — 칼럼 참여 유도 시스템
 
+> **역할 구분**
+> - `column-pipeline`: 칼럼 **제작** 넛지 (크리에이터에게 주제 제안 → 직접 쓰게 유도)
+> - `content-nudge` (이 스킬): 칼럼 **게시 후** 참여 유도 (맨션 질문 → 토론 촉진)
+
 ## 플로우
 
 ```
-Mother 리서치 → #daily-research에 리서치만 쌓기 (맨션 없음)
+칼럼 게시 완료 (#daily-research)
         ↓
-#content-pipeline에 "콘텐츠 시드" 포스트 + Jay 맨션
-  (앵글 후보 제시 + 의견 유도)
-        ↓
-Jay 응답 → Herald가 칼럼 작성
-        ↓
-칼럼 완성 후 크리에이터 맨션 (전문성 매칭 질문)
+크리에이터 맨션 (전문성 매칭 질문)
         ↓
 리액션/답변 추적 → creators DB 업데이트
         ↓
-축적된 관심사로 글쓰기 유도 (Herald DM)
+축적된 관심사 → column-pipeline 넛지에 활용
 ```
 
 ## 맨션 규칙
-
-### 콘텐츠 시드 포스트 (content-pipeline)
-1. **반드시 Herald(@1472187695835910236)를 맨션** — Herald가 Jay 응답을 감지하려면 맨션 필수
-2. **Jay 맨션 + Herald 맨션** 둘 다 포함 — "Jay가 앵글 고르면 Herald가 칼럼 작성"
-3. **리서치 원문은 링크로만** — #daily-research 메시지 URL 참조, 내용 복붙 금지
-
-### Herald 태스크 전달 (Jay 응답 후)
-1. **한 메시지에 모든 컨텍스트 포함** — 승인/지시/리서치링크/앵글을 분산하지 말 것
-2. **구체적 태스크 목록** — "진행하세요"가 아니라 1,2,3 단계로 명시
-3. **리서치 원문 링크 포함** — Herald가 별도 탐색 안 해도 되게
-
-**템플릿:**
-```
-<@Herald> 칼럼 초안 작성 승인 완료. 지금 바로 진행해.
-
-**태스크:**
-1. 콘텐츠 시드: {시드 내용 or 링크}
-2. 앵글: {선택된 앵글}
-3. 리서치 원문: {daily-research 메시지 링크}
-4. 기존 칼럼 스타일 참고해서 초안 작성
-5. 자체 GEO QA 채점 후 이 채널에 초안 제출
-```
 
 ### 크리에이터 맨션 (칼럼 완성 후)
 1. **구체적 질문만** — "어떻게 생각하세요?" 금지
@@ -78,17 +56,47 @@ Jay 응답 → Herald가 칼럼 작성
 - 리액션 감지 시 → reactions 추가, interests 갱신
 - 답변 감지 시 → nudgeHistory.responded = true
 
-## Mother 칼럼 크론 통합
+## Herald 무응답 Nudge 시스템
 
-Daily Research 크론 (`8a39c1f9`) 결과물에서:
-1. 칼럼 후보 자동 선별 (주 2~3회)
-2. 칼럼 작성 → 웹사이트 배포
-3. #daily-research 포스팅
-4. **content-nudge 실행** → 맨션 질문
+> 이것은 **칼럼 참여 질문**에 대한 무응답 처리. column-pipeline의 **칼럼 제작 넛지**와는 별개.
 
-## Herald 역할 (Phase 2)
+### 에스컬레이션 단계
 
-축적된 DB 기반으로:
-- 리액션 3회 이상 + 미작성 크리에이터에게 DM
-- "이 주제로 칼럼 써보시겠어요? Mother가 초안 잡아드려요"
-- 하루 1~2명, 로테이션
+| 시점 | 액션 | 톤 |
+|------|------|-----|
+| **1시간** | 체크인 | 친근 — "혹시 의견 있으면 편하게!" |
+| **6시간** | 리마인더 | 격려 — "한두 줄도 OK" |
+| **24시간** | 마지막 넛지 | 이해 — "이번은 패스해도 돼!" |
+| **24시간+** | 자동 클로즈 | 스레드 닫고 Kaizen 이슈 |
+
+### 실행 규칙
+1. **같은 스레드에서 Nudge** — DM 아닌 원래 스레드
+2. **Nudge 간 최소 간격**: 1시간
+3. **하루 최대 Nudge**: 크리에이터 1인당 2회
+4. **야간 금지**: 23:00~08:00 KST
+5. **연속 무응답 3회 → 2주 쿨다운**
+
+### Kaizen 이슈 연동
+
+무응답 24시간 초과 시:
+```bash
+gh issue create --repo jayleekr/agent-knowledge \
+  --title "[Herald] 크리에이터 무응답: {username} — {column}" \
+  --body "..." \
+  --label "agent:herald,nudge:timeout,creator:{username}"
+```
+
+### Kaizen 학습 루프
+
+Kaizen이 `nudge:timeout` + `nudge:success` 분석하여:
+1. 크리에이터별 최적 Nudge 시간 학습
+2. 질문 난이도 조절
+3. 참여율 예측
+4. 월간 리포트
+
+## column-pipeline 연동
+
+content-nudge에서 축적된 크리에이터 관심사/참여 데이터는 column-pipeline이 활용:
+- **주제 제안 시**: 크리에이터의 interests + 최근 반응 주제 참고
+- **넛지 타이밍**: Kaizen 학습 결과 반영
+- **쿨다운 공유**: content-nudge 쿨다운 중인 크리에이터는 column-pipeline에서도 감안

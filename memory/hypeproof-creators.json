@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-02-22",
+  "updatedAt": "2026-02-26",
   "source": "~/CodeWorkspace/hypeproof/members.md",
   "creators": [
     {
@@ -10,11 +10,27 @@
       "role": "admin",
       "title": "Staff Software Engineer @ Silicon Valley Tech Company",
       "education": "Hanyang University — CS Ph.D Cand.",
-      "expertise": ["AI에이전트", "차량SW", "PM", "OpenClaw", "블록체인", "시스템아키텍처"],
+      "expertise": [
+        "AI에이전트",
+        "차량SW",
+        "PM",
+        "OpenClaw",
+        "블록체인",
+        "시스템아키텍처"
+      ],
       "domain": "Tech / Lead",
-      "interests": ["AI코딩", "에이전트아키텍처", "MCP", "양자컴퓨팅"],
+      "interests": [
+        "AI코딩",
+        "에이전트아키텍처",
+        "MCP",
+        "양자컴퓨팅"
+      ],
       "reactions": [],
-      "articles": ["building-ai-assistant-with-openclaw", "building-ai-content-platform", "ai-scores-your-writing-geo-qa"],
+      "articles": [
+        "building-ai-assistant-with-openclaw",
+        "building-ai-content-platform",
+        "ai-scores-your-writing-geo-qa"
+      ],
       "nudgeHistory": [],
       "notes": "Admin. 칼럼 3편+. 넛지 대상 아님."
     },
@@ -25,9 +41,19 @@
       "role": "creator",
       "title": "AI/ML Engineer @ Remember | Ex-Quant",
       "education": "M.S. in Physics",
-      "expertise": ["AI/ML엔지니어링", "퀀트", "웹프론트엔드", "물리학"],
+      "expertise": [
+        "AI/ML엔지니어링",
+        "퀀트",
+        "웹프론트엔드",
+        "물리학"
+      ],
       "domain": "Research / AI Engineering",
-      "interests": ["AI코딩도구", "microgpt", "Agentic Workflow", "Claude Code"],
+      "interests": [
+        "AI코딩도구",
+        "microgpt",
+        "Agentic Workflow",
+        "Claude Code"
+      ],
       "reactions": [],
       "articles": [],
       "nudgeHistory": [
@@ -46,26 +72,53 @@
       "role": "creator",
       "title": "Global Offline Marketing Specialist",
       "education": "George Washington University — Psychology & Philosophy",
-      "expertise": ["글로벌마케팅", "오프라인마케팅", "심리학", "전략"],
+      "expertise": [
+        "글로벌마케팅",
+        "오프라인마케팅",
+        "심리학",
+        "전략"
+      ],
       "domain": "Marketing / Strategy",
       "interests": [],
       "reactions": [],
       "articles": [],
-      "nudgeHistory": [],
-      "notes": "Discord ID 미확인. 마케팅/전략 전문. EP1 마케팅 배포 채널 활동."
+      "nudgeHistory": [
+        {
+          "date": "2026-02-26",
+          "topic": "chinese-ai-61-market-share-tech-vs-accessibility",
+          "question": "글로벌 마케팅에서 기술 우위 vs 시장 접근성 패턴 경험",
+          "responded": false,
+          "messageId": "1476393749654274109",
+          "nudges": [
+            {
+              "time": "2026-02-26T10:41:48.717106",
+              "stage": 0,
+              "message": "initial nudge"
+            }
+          ]
+        }
+      ],
+      "notes": "Discord ID 확인완료 (2026-02-26). 마케팅/전략 전문.",
+      "id": "1460845189793845420"
     },
     {
       "username": "tj.kr",
       "displayName": "TJ (강태진)",
       "role": "creator",
       "title": "Media Specialist / Ex-Founder",
-      "expertise": ["미디어제작", "영상편집", "콘텐츠기획", "창업"],
+      "expertise": [
+        "미디어제작",
+        "영상편집",
+        "콘텐츠기획",
+        "창업"
+      ],
       "domain": "Contents / Media Production",
       "interests": [],
       "reactions": [],
       "articles": [],
       "nudgeHistory": [],
-      "notes": "Discord ID 미확인. EP1 제작 워크플로우 채널 활동. 편집 공수 기록."
+      "notes": "Discord ID 확인완료 (2026-02-26). 미디어/콘텐츠 전문.",
+      "id": "1458010195228758017"
     },
     {
       "id": "470486268069806090",
@@ -74,9 +127,18 @@
       "role": "creator",
       "title": "Quantitative Researcher @ AssetPlus (AlphaBridge)",
       "education": "Ph.D in Physics — Ex-Scientist @ CERN",
-      "expertise": ["퀀트리서치", "데이터분석", "물리학", "CERN", "금융"],
+      "expertise": [
+        "퀀트리서치",
+        "데이터분석",
+        "물리학",
+        "CERN",
+        "금융"
+      ],
       "domain": "Research / Data Analysis",
-      "interests": ["AI교육", "하드웨어"],
+      "interests": [
+        "AI교육",
+        "하드웨어"
+      ],
       "reactions": [],
       "articles": [],
       "nudgeHistory": [
@@ -95,13 +157,19 @@
       "role": "creator",
       "title": "Ph.D. Candidate @ CMS Collaboration (CERN)",
       "education": "Kyungpook National Univ. — Experimental Physics",
-      "expertise": ["입자물리학", "실험물리", "데이터분석", "CERN CMS"],
+      "expertise": [
+        "입자물리학",
+        "실험물리",
+        "데이터분석",
+        "CERN CMS"
+      ],
       "domain": "Particle Physics / Data Analysis",
       "interests": [],
       "reactions": [],
       "articles": [],
       "nudgeHistory": [],
-      "notes": "Discord ID 미확인. CERN 현역 연구자. 데이터 분석 전문."
+      "notes": "Discord ID 확인완료 (2026-02-26). League of Legends 플레이.",
+      "id": "957957767992328213"
     },
     {
       "username": "TBD",
@@ -109,7 +177,12 @@
       "role": "creator",
       "title": "Engineering Manager @ Silicon Valley Tech Company",
       "education": "Politechnika Łódzka — M.Sc. in Electronics & Telecommunications",
-      "expertise": ["엔지니어링매니지먼트", "전자공학", "통신", "실리콘밸리"],
+      "expertise": [
+        "엔지니어링매니지먼트",
+        "전자공학",
+        "통신",
+        "실리콘밸리"
+      ],
       "domain": "Engineering / Management",
       "interests": [],
       "reactions": [],
